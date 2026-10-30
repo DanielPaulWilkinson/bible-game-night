@@ -13,6 +13,20 @@ const sections = [
     { href: '#/draw', title: 'Draw It', blurb: 'Draw the secret word while everyone guesses.', icon: 'draw' },
     { href: '#/quiz', title: 'Quiz Night', blurb: 'Three rounds for 2 to 4 teams, with a big scoreboard.', icon: 'quiz' },
   ] },
+  { title: 'Get up and move', games: [
+    { href: '#/jericho', title: 'Walls of Jericho', blurb: 'March seven times, blow the trumpet, shout!', icon: 'jericho' },
+    { href: '#/freeze', title: 'Freeze, Lot’s Wife!', blurb: 'Musical statues with Bible poses.', icon: 'freeze' },
+    { href: '#/feed', title: 'Feed the 5,000', blurb: 'Pass the device and share the loaves and fish.', icon: 'feed' },
+    { href: '#/noah', title: 'Noah’s Animal Noises', blurb: 'Act the animal, guess it, load the ark in pairs.', icon: 'noah' },
+    { href: '#/sheep', title: 'Hide the Lost Sheep', blurb: 'Hot and cold hunt with a baa that gets louder.', icon: 'sheep' },
+  ] },
+  { title: 'Learn and remember', games: [
+    { href: '#/timeline', title: 'The Big Story Timeline', blurb: 'From Creation to New Creation, in order.', icon: 'timeline' },
+    { href: '#/verse', title: 'Verse Builder', blurb: 'Tap the missing words back into a memory verse.', icon: 'verse' },
+    { href: '#/world', title: 'Where in the World?', blurb: 'Find Bible places on a simple map.', icon: 'world' },
+    { href: '#/whoami', title: 'Who Am I? Clue by Clue', blurb: 'Guess early for more points, Bible and church history.', icon: 'whoami' },
+    { href: '#/passport', title: 'Church History Passport', blurb: 'Hear six stories, tell them back, collect stamps.', icon: 'passport' },
+  ] },
   { title: 'Board games', games: [
     { href: '#/snakes', title: 'Pilgrim’s Way', blurb: 'Snakes and ladders on the road from The Pilgrim’s Progress.', icon: 'snakes' },
     { href: '#/exodus', title: 'Out of Egypt', blurb: 'Race from Egypt to the promised land with story cards.', icon: 'exodus' },
@@ -27,7 +41,7 @@ const sections = [
       <img :src="`scenes/noah-5.webp`" width="480" height="352" alt="Noah and his family under a rainbow beside the ark" class="h-full w-full border-b-4 border-ink object-cover sm:border-b-0 sm:border-r-4" />
       <div class="flex flex-col justify-center p-6 sm:p-8">
         <h1 tabindex="-1" class="text-5xl font-semibold leading-none outline-none sm:text-6xl">Bible Games</h1>
-        <p class="mt-4 max-w-[34ch] text-xl leading-snug">Fourteen games with people and stories from the Bible, for one screen and a sofa full of family.</p>
+        <p class="mt-4 max-w-[34ch] text-xl leading-snug">Twenty-four games with people and stories from the Bible, for one screen and a sofa full of family.</p>
       </div>
     </header>
     <section v-for="sec in sections" :key="sec.title" class="mt-10">

@@ -9,3 +9,14 @@ body { background: #1E3557; color: #FAF3E3; }
 h1:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
 @media print { body { background: #fff !important; color: #000; } .no-print { display: none !important; } }
+@layer components {
+  .page { @apply mt-6 border-4 border-ink bg-[#F3E6C8] p-5 text-ink sm:p-8; }
+  .btn { @apply inline-flex min-h-14 items-center justify-center rounded-full border-2 border-ink bg-saffron px-7 text-xl font-semibold text-ink; }
+  .btn2 { @apply inline-flex min-h-12 items-center justify-center rounded-full border-2 border-ink bg-linen px-6 text-lg font-semibold text-ink; }
+  .chip { @apply inline-flex min-h-12 items-center justify-center rounded border-2 border-ink bg-linen px-4 text-xl text-ink; }
+  .src { @apply mt-3 text-base italic; }
+}
+@keyframes wallfall { to { transform: translateY(40px) rotate(6deg) scaleY(.35); opacity: .55; } }
+.fall { animation: wallfall .9s ease-in forwards; }
+@keyframes pop { 0% { transform: scale(.6); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
+.pop { animation: pop .4s ease-out; }

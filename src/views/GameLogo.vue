@@ -95,6 +95,65 @@ defineProps<{ id: string }>()
         <path d="M27 30l2-6 3 4 3-4 2 6z" fill="#E3A23B" stroke-width="1.5" />
         <path d="M28 36h8M28 39h6" fill="none" stroke-width="1.5" />
       </template>
+      <template v-else-if="id === 'jericho'">
+        <path d="M14 46V26h7v-5h5v5h12v-5h5v5h7v20z" />
+        <path d="M14 34h36M24 26v20M34 34v12M44 26v20" fill="none" stroke-width="1.5" />
+        <path d="M28 46v-6a4 4 0 0 1 8 0v6z" fill="#2B2117" />
+        <path d="M44 14c3 0 6 2 8 5l-3 2c-1-2-3-3-5-3z" fill="#E3A23B" stroke-width="1.5" />
+      </template>
+      <template v-else-if="id === 'freeze'">
+        <circle cx="32" cy="17" r="5" />
+        <path d="M32 22v14M32 26l-10-6M32 26l10 4M32 36l-7 12M32 36l7 12" fill="none" />
+        <path d="M14 46h36" fill="none" stroke="#E3A23B" />
+        <path d="M48 14v8l4-1v-7z" fill="#9B2C45" stroke-width="1.5" />
+      </template>
+      <template v-else-if="id === 'feed'">
+        <path d="M14 36c0-7 6-11 12-11s12 4 12 11z" fill="#E3A23B" />
+        <path d="M18 31l3-3M24 30l3-3M30 31l3-3" fill="none" stroke-width="1.5" />
+        <path d="M30 42c6-6 14-6 18 0-4 6-12 6-18 0zM30 42l-5-4v8z" />
+        <circle cx="43" cy="41" r="1.2" fill="#2B2117" />
+      </template>
+      <template v-else-if="id === 'noah'">
+        <path d="M12 38h40l-6 9H18z" />
+        <path d="M20 38V29h22v9" />
+        <path d="M27 29l4-5 4 5" fill="#E3A23B" stroke-width="1.5" />
+        <path d="M22 18c2-3 5-3 7 0M35 15c2-3 5-3 7 0" fill="none" stroke-width="2" />
+      </template>
+      <template v-else-if="id === 'sheep'">
+        <path d="M18 32c-3-4 1-8 5-6 1-4 7-4 8 0 3-3 8-1 7 3 4 0 5 6 1 7 1 4-4 6-6 3-2 3-7 3-8 0-4 2-8-2-7-7z" />
+        <ellipse cx="17" cy="30" rx="4" ry="3" fill="#2B2117" />
+        <path d="M24 40v7M36 40v7" fill="none" />
+        <path d="M44 18c3 2 3 6 0 8M48 15c5 4 5 10 0 14" fill="none" stroke="#E3A23B" />
+      </template>
+      <template v-else-if="id === 'timeline'">
+        <path d="M14 48c10-2 4-12 14-14s16-6 12-14" fill="none" stroke-width="5" stroke="#E3A23B" />
+        <path d="M14 48c10-2 4-12 14-14s16-6 12-14" fill="none" stroke-width="1" stroke-dasharray="2 3" />
+        <circle cx="14" cy="48" r="3.5" /><circle cx="28" cy="34" r="3.5" /><circle cx="40" cy="20" r="3.5" fill="#9B2C45" />
+        <path d="M44 14l2 4 4 .5-3 3 1 4-4-2-4 2 1-4-3-3 4-.5z" fill="#E3A23B" stroke-width="1.2" />
+      </template>
+      <template v-else-if="id === 'verse'">
+        <rect x="14" y="16" width="36" height="32" rx="2" />
+        <path d="M19 24h26M19 30h8M19 36h20M19 42h12" fill="none" stroke-width="2" />
+        <rect x="30" y="27" width="14" height="6" rx="1" fill="#E3A23B" stroke-width="1.5" stroke-dasharray="2 2" />
+      </template>
+      <template v-else-if="id === 'world'">
+        <path d="M22 12h18c-2 6 2 10 0 16s4 12 2 22H24c2-8-4-12-2-20s-4-10 0-18z" />
+        <path d="M38 14c0 8 2 14 0 22" fill="none" stroke="#6f9cc0" stroke-width="2" />
+        <circle cx="30" cy="34" r="4" fill="#9B2C45" stroke-width="1.5" />
+        <path d="M30 38v6" fill="none" stroke="#9B2C45" />
+      </template>
+      <template v-else-if="id === 'whoami'">
+        <circle cx="28" cy="28" r="11" />
+        <path d="M36 36l12 12" fill="none" stroke-width="4" />
+        <path d="M25 25a3 3 0 1 1 4 2.8c-1 .5-1 1.2-1 2.2" fill="none" stroke="#9B2C45" />
+        <circle cx="28" cy="33" r=".7" fill="#9B2C45" stroke="#9B2C45" />
+      </template>
+      <template v-else-if="id === 'passport'">
+        <rect x="17" y="13" width="30" height="38" rx="3" fill="#9B2C45" />
+        <rect x="21" y="17" width="22" height="30" rx="1" />
+        <circle cx="32" cy="30" r="7" fill="none" stroke="#9B2C45" stroke-width="2" />
+        <path d="M32 24v12M26 30h12" fill="none" stroke="#9B2C45" stroke-width="2" />
+      </template>
       <template v-else>
         <path d="M12 20c7-2 14-1 20 3 6-4 13-5 20-3v25c-7-2-14-1-20 3-6-4-13-5-20-3z" />
         <path d="M32 23v25" fill="none" />
