@@ -1,0 +1,33 @@
+import { createRequire } from 'module'; const puppeteer = createRequire('/workspace/cp-tools/x.js')('puppeteer-core')
+const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] })
+const p = await b.newPage(); const errs = []
+p.on('pageerror', e => errs.push(e.message)); p.on('console', m => m.type() === 'error' && errs.push(m.text()))
+const wait = ms => new Promise(r => setTimeout(r, ms))
+const click = async (text) => { const bs = await p.$$('button'); for (const x of bs) if ((await x.evaluate(e => e.textContent.trim())).startsWith(text)) return x.click(); throw new Error('no ' + text) }
+async function shot(w, h, hash, name, act) {
+  await p.setViewport({ width: w, height: h, deviceScaleFactor: w < 600 ? 2 : 1, isMobile: w < 600, hasTouch: w < 600 })
+  await p.goto('http://localhost:4193/' + hash, { waitUntil: 'networkidle0' })
+  if (act) await act(); await wait(400)
+  await p.screenshot({ path: `preview/games/${name}.png`, fullPage: true })
+}
+const tiles = () => p.$$('main ul li button')
+await shot(1280, 900, '', 'menu')
+await shot(390, 844, '', 'menu-phone')
+await shot(1280, 900, '#/guess', 'guess-who')
+await shot(1280, 900, '#/pairs', 'pairs', async () => { const t = await tiles(); await t[0].click(); await t[1].click(); await wait(100); const t2 = await tiles(); await t2[2].click() })
+await shot(390, 844, '#/pairs', 'pairs-phone', async () => { const t = await tiles(); await t[3].click(); await t[5].click() })
+await shot(1280, 900, '#/quotes', 'who-said-it', async () => { const t = await tiles(); await t[1].click() })
+await shot(390, 844, '#/quotes', 'who-said-it-phone')
+await shot(1280, 900, '#/order', 'story-order-pick')
+await shot(390, 844, '#/order', 'story-order-phone', async () => { await click('Jonah'); await wait(200); const t = await p.$$('ul[class*="grid"]:last-of-type li button'); await t[0].click(); await wait(100); const u = await p.$$('ul[class*="grid"]:last-of-type li button'); await u[0].click() })
+await shot(1280, 900, '#/order', 'story-order', async () => { await click('Noah'); await wait(200); for (let i = 0; i < 5; i++) { const t = await p.$$('ul li button'); await t[0].click(); await wait(80) } ; await click('Check my story').catch(() => {}) })
+await shot(1280, 900, '#/bingo', 'bingo-card', async () => { const t = await p.$$('ul[aria-label="Bingo card"] button'); for (const i of [0, 5, 10, 15, 3]) await t[i].click() })
+await shot(1280, 900, '#/bingo', 'bingo-caller', async () => { await click('Caller'); await wait(100); for (let i = 0; i < 6; i++) await click('Call next person') })
+await shot(1280, 900, '#/map', 'map-abraham', async () => { for (let i = 0; i < 3; i++) await click('Next stop') })
+await shot(390, 844, '#/map', 'map-paul-phone', async () => { await click('Paul'); for (let i = 0; i < 6; i++) await click('Next stop') })
+await shot(1280, 900, '#/credits', 'credits')
+// print view of bingo
+await p.setViewport({ width: 1000, height: 1300 }); await p.goto('http://localhost:4193/#/bingo', { waitUntil: 'networkidle0' })
+await p.evaluate(() => { window.print = () => {} }); await click('Print 4 cards'); await wait(300); await p.emulateMediaType('print'); await wait(300)
+await p.screenshot({ path: 'preview/games/bingo-print.png', fullPage: true }); await p.emulateMediaType(null)
+console.log('errors:', JSON.stringify(errs)); await b.close()

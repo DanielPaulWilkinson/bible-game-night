@@ -6,3 +6,6 @@ body { background: #1E3557 radial-gradient(ellipse at top, #2a4772 0%, #1E3557 6
 .tile.down { transform: scale(.94) translateY(3px); filter: grayscale(1) sepia(.35) brightness(.72); }
 @media (prefers-reduced-motion: reduce) { .tile { transition: none; } }
 .initial-card { background: repeating-linear-gradient(45deg,#f3e6c8 0 6px,#efdfbd 6px 12px); }
+h1:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+@media print { body { background: #fff !important; color: #000; } .no-print { display: none !important; } }
