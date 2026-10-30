@@ -1,3 +1,4 @@
+import { BSB, inVerse, checkFixtureAgainstFull } from './bsb'
 import { describe, it, expect } from 'vitest'
 import { readFileSync, existsSync } from 'node:fs'
 import figures from '../src/figures.json'
@@ -35,20 +36,14 @@ describe('Pairs', () => {
   })
 })
 
-describe('Who said it?', () => {
-  const kjv = new Map(readFileSync('tests/kjv-fixture.txt', 'utf8').trim().split('\n').map((l: string) => l.split('\t') as [string, string]))
-  const norm = (s: string) => s.toLowerCase().replace(/[\u2019']/g, "'").replace(/[.,;:?!]/g, '').replace(/æ/g, 'ae').replace(/\s+/g, ' ').trim()
-  it.each(QUOTES.map(q => [q.figureId, q] as const))('%s quote is word for word in the KJV verse', (_, q) => {
-    const verse = kjv.get(q.verse); expect(verse, q.verse).toBeTruthy()
-    expect(norm(verse!)).toContain(norm(q.text))
-    const [bk, cv] = [q.verse.split(' ')[0], q.verse.split(' ')[1]]
-    expect(q.ref.endsWith(cv), `${q.ref} vs ${bk} ${cv}`).toBe(true)
+describe('Who said or wrote it?', () => {
+  it.each(QUOTES.map(q => [q.figureId, q] as const))('%s quote is word for word in the BSB verse', (_, q) => {
+    expect(BSB.get(q.verse), q.verse).toBeTruthy()
+    expect(inVerse(q.verse, q.text), `${q.verse}: ${q.text}`).toBe(true)
+    expect(q.ref.endsWith(q.verse.split(' ')[1]), q.ref).toBe(true)
   })
-  it('fixture matches the full KJV text when it is available', () => {
-    const full = '../bible-companion/public/data/verses.txt'
-    if (!existsSync(full)) return
-    const all = readFileSync(full, 'utf8')
-    for (const [ref, text] of kjv) expect(all.includes(`${ref}\t${text}\n`)).toBe(true)
+  it('fixture matches the full BSB text when it is available', () => {
+    expect(checkFixtureAgainstFull()).toBeGreaterThanOrEqual(0)
   })
   it('every quote is by a figure and figures are unique', () => {
     QUOTES.forEach(q => expect(F.some(f => f.id === q.figureId)).toBe(true))

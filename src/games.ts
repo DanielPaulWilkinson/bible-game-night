@@ -40,29 +40,29 @@ export function flipCard(p: Pairs, key: string): Pairs {
 }
 export const pairsDone = (p: Pairs) => p.matched.length * 2 === p.cards.length
 
-/* ---------- Who said it? (KJV, checked in tests) ---------- */
+/* ---------- Who said or wrote it? (BSB, checked in tests) ---------- */
 export type Quote = { figureId: string; text: string; ref: string; verse: string }
 export const QUOTES: Quote[] = [
-  { figureId: 'ruth', text: 'Whither thou goest, I will go.', ref: 'Ruth 1:16', verse: 'RUT 1:16' },
+  { figureId: 'ruth', text: 'Wherever you go, I will go.', ref: 'Ruth 1:16', verse: 'RUT 1:16' },
   { figureId: 'david', text: 'The LORD is my shepherd; I shall not want.', ref: 'Psalm 23:1', verse: 'PSA 23:1' },
-  { figureId: 'mary', text: 'Behold the handmaid of the Lord.', ref: 'Luke 1:38', verse: 'LUK 1:38' },
-  { figureId: 'john-baptist', text: 'Behold the Lamb of God.', ref: 'John 1:29', verse: 'JHN 1:29' },
-  { figureId: 'peter', text: 'Thou art the Christ, the Son of the living God.', ref: 'Matthew 16:16', verse: 'MAT 16:16' },
-  { figureId: 'thomas', text: 'My Lord and my God.', ref: 'John 20:28', verse: 'JHN 20:28' },
-  { figureId: 'zacchaeus', text: 'The half of my goods I give to the poor.', ref: 'Luke 19:8', verse: 'LUK 19:8' },
-  { figureId: 'hannah', text: 'For this child I prayed.', ref: '1 Samuel 1:27', verse: '1SA 1:27' },
-  { figureId: 'esther', text: 'If I perish, I perish.', ref: 'Esther 4:16', verse: 'EST 4:16' },
-  { figureId: 'moses', text: 'Let my people go.', ref: 'Exodus 5:1', verse: 'EXO 5:1' },
-  { figureId: 'jonah', text: 'I cried by reason of mine affliction unto the LORD, and he heard me.', ref: 'Jonah 2:2', verse: 'JON 2:2' },
-  { figureId: 'paul', text: 'I can do all things through Christ which strengtheneth me.', ref: 'Philippians 4:13', verse: 'PHP 4:13' },
-  { figureId: 'joseph', text: 'God meant it unto good.', ref: 'Genesis 50:20', verse: 'GEN 50:20' },
-  { figureId: 'martha', text: 'Lord, if thou hadst been here, my brother had not died.', ref: 'John 11:21', verse: 'JHN 11:21' },
-  { figureId: 'daniel', text: 'My God hath sent his angel, and hath shut the lions\u2019 mouths.', ref: 'Daniel 6:22', verse: 'DAN 6:22' },
-  { figureId: 'solomon', text: 'Give therefore thy servant an understanding heart.', ref: '1 Kings 3:9', verse: '1KI 3:9' },
-  { figureId: 'deborah', text: 'Is not the LORD gone out before thee?', ref: 'Judges 4:14', verse: 'JDG 4:14' },
-  { figureId: 'miriam', text: 'Sing ye to the LORD, for he hath triumphed gloriously.', ref: 'Exodus 15:21', verse: 'EXO 15:21' },
-  { figureId: 'sarah', text: 'God hath made me to laugh.', ref: 'Genesis 21:6', verse: 'GEN 21:6' },
-  { figureId: 'elijah', text: 'Let it be known this day that thou art God in Israel.', ref: '1 Kings 18:36', verse: '1KI 18:36' },
+  { figureId: 'mary', text: 'I am the Lord\u2019s servant.', ref: 'Luke 1:38', verse: 'LUK 1:38' },
+  { figureId: 'john-baptist', text: 'Look, the Lamb of God!', ref: 'John 1:29', verse: 'JHN 1:29' },
+  { figureId: 'peter', text: 'You are the Christ, the Son of the living God.', ref: 'Matthew 16:16', verse: 'MAT 16:16' },
+  { figureId: 'thomas', text: 'My Lord and my God!', ref: 'John 20:28', verse: 'JHN 20:28' },
+  { figureId: 'zacchaeus', text: 'Half of my possessions I give to the poor.', ref: 'Luke 19:8', verse: 'LUK 19:8' },
+  { figureId: 'hannah', text: 'I prayed for this boy.', ref: '1 Samuel 1:27', verse: '1SA 1:27' },
+  { figureId: 'esther', text: 'If I perish, I perish!', ref: 'Esther 4:16', verse: 'EST 4:16' },
+  { figureId: 'moses', text: 'Let My people go.', ref: 'Exodus 5:1', verse: 'EXO 5:1' },
+  { figureId: 'jonah', text: 'In my distress I called to the LORD, and He answered me.', ref: 'Jonah 2:2', verse: 'JON 2:2' },
+  { figureId: 'paul', text: 'I can do all things through Christ who gives me strength.', ref: 'Philippians 4:13', verse: 'PHP 4:13' },
+  { figureId: 'joseph', text: 'God intended for good.', ref: 'Genesis 50:20', verse: 'GEN 50:20' },
+  { figureId: 'martha', text: 'Lord, if You had been here, my brother would not have died.', ref: 'John 11:21', verse: 'JHN 11:21' },
+  { figureId: 'daniel', text: 'My God sent His angel and shut the mouths of the lions.', ref: 'Daniel 6:22', verse: 'DAN 6:22' },
+  { figureId: 'solomon', text: 'Give Your servant an understanding heart.', ref: '1 Kings 3:9', verse: '1KI 3:9' },
+  { figureId: 'deborah', text: 'Has not the LORD gone before you?', ref: 'Judges 4:14', verse: 'JDG 4:14' },
+  { figureId: 'miriam', text: 'Sing to the LORD, for He is highly exalted.', ref: 'Exodus 15:21', verse: 'EXO 15:21' },
+  { figureId: 'sarah', text: 'God has made me laugh.', ref: 'Genesis 21:6', verse: 'GEN 21:6' },
+  { figureId: 'elijah', text: 'Let it be known this day that You are God in Israel.', ref: '1 Kings 18:36', verse: '1KI 18:36' },
 ]
 export type Round = { quote: Quote; choices: string[] }
 export type Quiz = { rounds: Round[]; at: number; score: number; answered: string | null }

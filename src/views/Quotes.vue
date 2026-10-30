@@ -18,12 +18,12 @@ const canSpeak = typeof window !== 'undefined' && 'speechSynthesis' in window
 <template>
   <main class="mx-auto max-w-3xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Who Said It?</h1>
+    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Who said or wrote it?</h1>
     <template v-if="!quizDone(q)">
       <p class="mt-1 text-lg text-[#dfe6f0]">Question {{ q.at + 1 }} of {{ q.rounds.length }}. Read the words out loud, then pick who said them.</p>
       <blockquote class="mt-4 rounded-xl bg-linen p-5 text-ink shadow-[0_6px_0_#0f1d33]">
         <p class="text-2xl leading-snug sm:text-3xl">&ldquo;{{ round.quote.text }}&rdquo;</p>
-        <footer class="mt-2 text-base text-[#5a4a38]">{{ round.quote.ref }}, King James Version</footer>
+        <footer class="mt-2 text-base text-[#5a4a38]">{{ round.quote.ref }}, Berean Standard Bible</footer>
       </blockquote>
       <button v-if="canSpeak" class="mt-3 min-h-12 rounded-full bg-[#16294a] px-5 text-base font-semibold text-linen ring-1 ring-[#3b557d]" @click="say">Read it to me</button>
       <ul class="mt-4 grid grid-cols-3 gap-3" aria-label="Who said it?">
