@@ -4,7 +4,7 @@ Audience: Daniel, Jonah and Elijah at the kitchen table, two devices, questions 
 Job: show 24 faces clearly, make flipping one down feel like turning a tile, and keep the secret person safe from a peeking brother.
 
 ## Direction: "Tissot's sketchbook on a lapis tent cloth"
-All pictures are James Tissot's Bible watercolours (1896–1902), so the board borrows their world: dusty
+Pictures were first James Tissot watercolours; they are now Jim Padgett's Sweet Publishing illustrations (CC BY-SA 3.0), which are warmer and friendlier for small children. The palette below still fits them: dusty
 Near-Eastern daylight, linen, saffron and lapis. Not cream-and-terracotta, not a SaaS card grid.
 
 ## Colour
