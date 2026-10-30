@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import GameLogo from './GameLogo.vue'
+import { TAGS, FILTERS, matches, type Filter } from '../tags'
 const sections = [
   { title: 'Play together', games: [
     { href: '#/guess', title: 'Guess Who', blurb: 'Ask yes-or-no questions to find the secret person.', icon: 'guess' },
@@ -11,6 +13,7 @@ const sections = [
     { href: '#/charades', title: 'Bible Charades', blurb: 'Act out a picture. Your team guesses against the clock.', icon: 'charades' },
     { href: '#/real', title: 'Real or Made Up?', blurb: 'Vote with your hands, then find out the truth.', icon: 'real' },
     { href: '#/draw', title: 'Draw It', blurb: 'Draw the secret word while everyone guesses.', icon: 'draw' },
+    { href: '#/balderdash', title: 'Bible Balderdash', blurb: 'Strange Bible words. Bluff a meaning, spot the real one.', icon: 'real' },
     { href: '#/quiz', title: 'Quiz Night', blurb: 'Three rounds for 2 to 4 teams, with a big scoreboard.', icon: 'quiz' },
   ] },
   { title: 'Get up and move', games: [
@@ -34,6 +37,12 @@ const sections = [
     { href: '#/trumps', title: 'Bible Top Trumps', blurb: 'Faith, courage, kindness and wisdom cards.', icon: 'trumps' },
   ] },
 ]
+const f = ref<Filter>({})
+const toggle = <K extends keyof Filter>(k: K, v: Filter[K]) => (f.value = { ...f.value, [k]: f.value[k] === v ? undefined : v })
+const shown = computed(() => sections.map(s => ({ ...s, games: s.games.filter(g => matches(TAGS[g.href.slice(2)], f.value)) })).filter(s => s.games.length))
+const count = computed(() => shown.value.reduce((n, s) => n + s.games.length, 0))
+const groups = [['age', 'Age'], ['players', 'Who'], ['energy', 'Energy'], ['style', 'Play']] as const
+const meta = (id: string) => { const t = TAGS[id]; return `${t.minutes} min` }
 </script>
 <template>
   <main class="mx-auto max-w-5xl px-4 py-6 font-story text-linen sm:py-10">
@@ -41,16 +50,34 @@ const sections = [
       <img :src="`scenes/noah-5.webp`" width="480" height="352" alt="Noah and his family under a rainbow beside the ark" class="h-full w-full border-b-4 border-ink object-cover sm:border-b-0 sm:border-r-4" />
       <div class="flex flex-col justify-center p-6 sm:p-8">
         <h1 tabindex="-1" class="text-5xl font-semibold leading-none outline-none sm:text-6xl">Bible Games</h1>
-        <p class="mt-4 max-w-[34ch] text-xl leading-snug">Twenty-four games with people and stories from the Bible, for one screen and a sofa full of family.</p>
+        <p class="mt-4 max-w-[34ch] text-xl leading-snug">Twenty-five games with people and stories from the Bible, for one screen and a sofa full of family.</p>
       </div>
     </header>
-    <section v-for="sec in sections" :key="sec.title" class="mt-10">
+    <a href="#/gamenight" class="mt-6 flex min-h-16 items-center justify-between gap-4 rounded-xl border-4 border-ink bg-saffron px-5 py-3 text-ink">
+      <span><span class="block text-3xl font-semibold">Game Night</span><span class="block text-lg">Three short games in 15 minutes, then a blessing.</span></span>
+      <span aria-hidden="true" class="text-4xl">→</span>
+    </a>
+    <section class="mt-8" aria-labelledby="find-h">
+      <h2 id="find-h" class="text-2xl font-semibold">Find a game</h2>
+      <div v-for="[k, label] in groups" :key="k" class="mt-3" role="group" :aria-label="label">
+        <span class="mr-2 text-base text-[#dfe6f0]">{{ label }}</span>
+        <ul class="mt-1 flex gap-2 overflow-x-auto pb-1 sm:flex-wrap">
+          <li v-for="[v, text] in FILTERS[k]" :key="v"><button type="button" :aria-pressed="f[k] === v" class="min-h-12 whitespace-nowrap rounded-full border-2 px-4 text-lg" :class="f[k] === v ? 'border-saffron bg-saffron text-ink font-semibold' : 'border-[#5a7299] text-linen'" @click="toggle(k, v as never)">{{ text }}</button></li>
+        </ul>
+      </div>
+      <div class="mt-3 flex flex-wrap items-center gap-3">
+        <button type="button" :aria-pressed="!!f.short" class="min-h-12 rounded-full border-2 px-4 text-lg" :class="f.short ? 'border-saffron bg-saffron text-ink font-semibold' : 'border-[#5a7299]'" @click="toggle('short', f.short ? undefined : true)">10 minutes or less</button>
+        <button v-if="Object.values(f).some(Boolean)" type="button" class="min-h-12 px-2 text-lg underline underline-offset-4" @click="f = {}">Clear filters</button>
+        <p class="text-lg" role="status" aria-live="polite">{{ count }} {{ count === 1 ? 'game' : 'games' }}</p>
+      </div>
+    </section>
+    <section v-for="sec in shown" :key="sec.title" class="mt-10">
     <h2 class="border-b-2 border-saffron pb-2 text-2xl font-semibold">{{ sec.title }}</h2>
     <ul class="grid sm:grid-cols-2 sm:gap-x-8">
       <li v-for="g in sec.games" :key="g.href" class="border-b border-[#3a5277]">
         <a :href="g.href" class="group flex min-h-24 items-center gap-4 py-3">
           <GameLogo :id="g.icon" class="h-16 w-16 shrink-0" />
-          <span><span class="block text-2xl font-semibold text-saffron group-hover:underline group-hover:underline-offset-4">{{ g.title }}</span><span class="mt-1 block text-base text-[#dfe6f0]">{{ g.blurb }}</span></span>
+          <span><span class="block text-2xl font-semibold text-saffron group-hover:underline group-hover:underline-offset-4">{{ g.title }}</span><span class="mt-1 block text-base text-[#dfe6f0]">{{ g.blurb }} {{ meta(g.href.slice(2)) }}.</span></span>
         </a>
       </li>
     </ul>
