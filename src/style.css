@@ -32,3 +32,5 @@ button:active:not(:disabled), .btn:active, .btn2:active { transform: scale(.96);
   button, .btn, .btn2 { transition: none; } button:active:not(:disabled), .btn:active, .btn2:active { transform: none; }
   .turn-enter-active, .turn-leave-active { transition: opacity 1ms; } .turn-enter-from, .turn-leave-to { transform: none; }
 }
+
+h1[tabindex="-1"]:focus-visible, h2[tabindex="-1"]:focus-visible { outline: none; }

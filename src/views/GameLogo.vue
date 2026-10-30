@@ -24,6 +24,7 @@ defineProps<{ id: string }>()
       <template v-else-if="id === 'simon'"><circle cx="32" cy="19" r="5" /><path d="M32 24v13M32 28l-10-8M32 28l10-8M32 37l-7 10M32 37l7 10" fill="none" /></template>
       <template v-else-if="id === 'catechism'"><path d="M14 18h16v26H14zM34 18h16v26H34z" /><path d="M20 26a2 2 0 1 1 3 2v2M40 26h6M40 31h6M40 36h4" fill="none" /></template>
       <template v-else-if="id === 'finish'"><path d="M26 44V20l18-4v24" fill="none" /><ellipse cx="22" cy="44" rx="5" ry="3.5" /><ellipse cx="40" cy="40" rx="5" ry="3.5" /></template>
+      <template v-else-if="id === 'blessing'"><path d="M14 42a18 18 0 0 1 36 0z" /><path d="M32 14v6M18 20l4 5M46 20l-4 5M11 31l6 2M53 31l-6 2M10 46h44" fill="none" /></template>
       <template v-else-if="id === 'thanks'"><path d="M20 46c0-8 2-16 6-22 2-3 5-3 6 0 1-3 4-3 6 0 4 6 6 14 6 22z" /><path d="M32 24v22" fill="none" /></template>
       <template v-else-if="id === 'pairs'">
         <rect x="15" y="18" width="18" height="25" rx="3" transform="rotate(-12 24 30)" />

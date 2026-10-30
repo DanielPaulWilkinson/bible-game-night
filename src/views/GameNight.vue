@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import Celebrate from './Celebrate.vue'
+import NightNext from './NightNext.vue'
+import NightPath from './NightPath.vue'
 import { finish } from '../phase24'
 import { GAME_NIGHT, BLESSING, newNight, addPoints, nextRound, nightOver, totalMinutes, type Night } from '../gamenight'
 import { deck, kidChoices, type Option } from '../balderdash'
@@ -15,6 +17,13 @@ const { t, start } = useTimer(300)
 const begin = (n: string[]) => { night.value = newNight(n); start(round.value!.minutes * 60) }
 const points = (who: number, n: number) => (night.value = addPoints(night.value!, who, n))
 const celebrated = ref(false)
+const between = ref(false), complete = ref(false)
+const path = [...GAME_NIGHT.map(r => ({ id: r.id, title: r.title, icon: r.id === 'real' ? 'real' : 'charades' })), { id: 'blessing', title: 'Blessing Round', icon: 'blessing' }]
+const roundDone = () => { if (night.value!.at >= GAME_NIGHT.length - 1) advance(); else between.value = true }
+const again = () => { between.value = false; start(round.value!.minutes * 60) }
+const skip = () => { between.value = false; advance(); advance() }
+const endNight = () => { location.hash = '#/' }
+const goNext = () => { between.value = false; advance() }
 const advance = () => { night.value = nextRound(night.value!); if (!nightOver(night.value)) start(round.value!.minutes * 60) }
 // Which one is real?
 const words = deck('K'); const wi = ref(0), picked = ref<number | null>(null), turn = ref(0)
@@ -27,6 +36,7 @@ const mm = computed(() => `${Math.floor(t.value.left / 60)}:${String(t.value.lef
 <template>
   <Shell id="quiz" title="Game Night" :intro="`Three short games in ${totalMinutes()} minutes. The last one is worth double. We finish with a blessing.`">
     <Names v-if="!night" label="Team" :defaults="['Family', 'Grown-ups', 'Boys', 'Guests']" :min="1" :max="4" start="Start Game Night" @start="begin" />
+    <NightNext v-else-if="between" :key="'between-' + night.at" :stops="path" :at="night.at" :done="round!.title" :scores="night.names.map((name, i) => ({ name, score: night!.scores[i] }))" @next="goNext" @again="again" @skip="skip" @end="endNight" />
     <template v-else-if="!nightOver(night)">
       <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
         <p class="text-2xl font-semibold">Round {{ night.at + 1 }} of 3: {{ round!.title }}<span v-if="round!.mult > 1" class="ml-2 rounded-full bg-pom px-3 py-1 text-lg text-linen">Double points</span></p>
@@ -47,17 +57,24 @@ const mm = computed(() => `${Math.floor(t.value.left / 60)}:${String(t.value.lef
           <button class="mt-3 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink" @click="nextWord">Next word</button>
         </div>
       </section>
-      <button class="mt-6 min-h-14 rounded-full px-6 text-xl font-semibold ring-2 ring-linen" :class="t.running ? '' : 'bg-saffron text-ink'" @click="advance">{{ night.at === 2 ? 'Finish and bless' : 'Next round' }}</button>
+      <button class="mt-6 min-h-14 rounded-full px-6 text-xl font-semibold ring-2 ring-linen" :class="t.running ? '' : 'bg-saffron text-ink'" @click="roundDone">{{ night.at === 2 ? 'Finish and bless' : 'Next round' }}</button>
     </template>
     <template v-else>
     <Celebrate v-if="!celebrated" :result="finish(night.names, night.scores, night.names.length > 1 ? 'compete' : 'coop')" :scores="night.names.map((name, i) => ({ name, score: night!.scores[i] }))" again-label="Go on to the blessing" @again="celebrated = true" />
+    <section v-else-if="complete" class="mt-6 rounded-xl border-4 border-ink bg-vellum p-8 text-center text-ink" aria-labelledby="done-h">
+      <h2 id="done-h" tabindex="-1" class="text-4xl font-semibold outline-none">Night complete</h2>
+      <p class="mt-2 text-xl">{{ night.names.map((n, i) => `${n} ${night!.scores[i]}`).join(', ') }}</p>
+      <p class="sr-only" role="status" aria-live="polite">Night complete.</p>
+      <NightPath :stops="path" :at="path.length" class="mt-4" />
+      <a href="#/" class="btn mt-6">Back to all games</a>
+    </section>
     <section v-else class="mt-6 rounded-xl border-4 border-ink bg-vellum p-8 text-center text-ink" aria-labelledby="bless">
       <h2 id="bless" class="text-4xl font-semibold">The blessing</h2>
       <p class="mt-2 text-lg">Say it over each other.</p>
       <blockquote class="mx-auto mt-5 max-w-[34ch] space-y-2 text-2xl leading-snug"><p v-for="b in BLESSING" :key="b.verse">{{ b.text }}</p></blockquote>
       <p class="mt-4 text-base italic">Numbers 6:24–26, Berean Standard Bible</p>
       <p class="mt-6 text-xl">{{ night.names.map((n, i) => `${n} ${night!.scores[i]}`).join(', ') }}</p>
-      <a href="#/" class="mt-6 inline-flex min-h-14 items-center rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink">Back to all games</a>
+      <button type="button" class="btn mt-6" @click="complete = true">Amen. Finish the night</button>
     </section>
     </template>
   </Shell>

@@ -10,6 +10,9 @@ import Credits from './views/Credits.vue'
 import Menu from './views/Menu.vue'
 import Blessing from './views/Blessing.vue'
 import { remember } from './menu'
+import NightBar from './views/NightBar.vue'
+import { loadNight, inLineup } from './night'
+const OWN_FINISH = ['taboo', 'sketch', 'alphabet', 'fill', 'act', 'framefreeze', 'simon', 'catechism', 'finish', 'thanks', 'blessing']
 import Charades from './views/Charades.vue'
 import RealOrFake from './views/RealOrFake.vue'
 import DrawIt from './views/DrawIt.vue'
@@ -56,4 +59,5 @@ onMounted(() => addEventListener('hashchange', onHash)); onUnmounted(() => remov
 
 <template>
   <component :is="route ? routes[route] : Menu" :key="route" />
+  <NightBar v-if="route && !OWN_FINISH.includes(route) && inLineup(loadNight(), route)" :key="'bar-' + route" />
 </template>

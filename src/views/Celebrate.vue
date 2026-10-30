@@ -4,6 +4,8 @@
 import { computed, onMounted, ref } from 'vue'
 import { finishHeadline, type Finish } from '../phase24'
 import { cheer, chime } from '../sound'
+import LineupNext from './LineupNext.vue'
+import { loadNight, inLineup } from '../night'
 const props = defineProps<{ result: Finish; scores?: { name: string; score: number }[]; sound?: boolean; againLabel?: string }>()
 const emit = defineEmits<{ again: [] }>()
 const h = ref<HTMLElement | null>(null)
@@ -15,6 +17,7 @@ const bits = Array.from({ length: 36 }, (_, i) => {
   return { x: Math.cos(a) * d, y: Math.sin(a) * d, c: COLOURS[i % COLOURS.length], star: i % 3 === 0, r: (i * 71) % 360, delay: (i % 6) * 30 }
 })
 const said = ref('')
+const inNight = inLineup(loadNight(), location.hash.replace(/^#\/?/, '').split('/')[0])
 onMounted(() => { h.value?.focus(); said.value = finishHeadline(props.result); if (props.sound !== false) (loud.value ? cheer : chime)() })
 </script>
 <template>
@@ -30,7 +33,8 @@ onMounted(() => { h.value?.focus(); said.value = finishHeadline(props.result); i
     </ol>
     <p class="sr-only" role="status" aria-live="polite">{{ said }}</p>
     <slot />
-    <div class="relative mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+    <LineupNext v-if="inNight" class="relative text-left" @again="emit('again')" />
+    <div v-else class="relative mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
       <button type="button" class="btn" @click="emit('again')">{{ againLabel ?? 'Play again' }}</button>
       <a href="#/" class="btn2">Choose another game</a>
     </div>

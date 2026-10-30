@@ -76,7 +76,7 @@ describe('Celebration', () => {
   })
 })
 describe('Menu and routes', () => {
-  const menu = readFileSync('src/views/Menu.vue', 'utf8'), app = readFileSync('src/App.vue', 'utf8')
+  const menu = readFileSync('src/catalog.ts', 'utf8') + readFileSync('src/views/Menu.vue', 'utf8'), app = readFileSync('src/App.vue', 'utf8')
   it.each(NEW)('%s is tagged, in the menu and routed', id => {
     expect(TAGS[id]).toBeTruthy(); expect(menu).toContain(`'#/${id}'`); expect(app).toMatch(new RegExp(`\\b${id}: \\[`))
   })
