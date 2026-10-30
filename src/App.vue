@@ -23,7 +23,7 @@ const read = () => { const k = location.hash.replace(/^#\/?/, '').split('/')[0];
 const route = ref(read())
 const onHash = () => (route.value = read())
 watch(route, async r => {
-  document.title = r ? `${titles[r]} · Bible Games` : 'Bible Games'
+  document.title = r ? `${titles[r]}: Bible Games` : 'Bible Games'
   await nextTick(); scrollTo(0, 0); const h = document.querySelector('main h1') as HTMLElement | null; if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }) }
 }, { immediate: true })
 onMounted(() => addEventListener('hashchange', onHash)); onUnmounted(() => removeEventListener('hashchange', onHash))

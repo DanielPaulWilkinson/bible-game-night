@@ -132,37 +132,52 @@ export const newRace = (names: string[], start = 1): Race => {
   return { players: names.map(name => ({ name, pos: start })), turn: 0, last: null, note: '', winner: null }
 }
 
-/* ---------- Snakes and ladders: Pilgrim's Way ---------- */
-export type Jump = { from: number; to: number; name: string; text: string } & Checked
+/* ---------- Pilgrim's Way: snakes and ladders after The Pilgrim's Progress (Bunyan, 1678) ---------- */
+/** `story` is a short retelling from The Pilgrim's Progress (not Scripture). `text` is a BSB quote, checked in tests. */
+export type Jump = { from: number; to: number; name: string; story: string; text: string } & Checked
+export const LANDMARKS: { square: number; name: string }[] = [
+  { square: 1, name: 'City of Destruction' }, { square: 8, name: 'Slough of Despond' }, { square: 14, name: 'Wicket Gate' },
+  { square: 27, name: 'Interpreter\u2019s House' }, { square: 30, name: 'The Cross' }, { square: 38, name: 'Hill Difficulty' },
+  { square: 46, name: 'Palace Beautiful' }, { square: 52, name: 'Valley of Humiliation' }, { square: 60, name: 'Vanity Fair' },
+  { square: 68, name: 'Doubting Castle' }, { square: 80, name: 'Delectable Mountains' }, { square: 88, name: 'Enchanted Ground' },
+  { square: 96, name: 'The River' }, { square: 100, name: 'Celestial City' },
+]
 export const LADDERS: Jump[] = [
-  { from: 4, to: 14, name: 'Kindness', text: 'Be kind and tenderhearted to one another', ref: 'Ephesians 4:32', verse: 'EPH 4:32', evidence: 'Be kind and tenderhearted to one another' },
-  { from: 9, to: 31, name: 'Sharing', text: 'Do good and to share with others', ref: 'Hebrews 13:16', verse: 'HEB 13:16', evidence: 'do good and to share with others' },
-  { from: 21, to: 42, name: 'Patience', text: 'Love is patient, love is kind', ref: '1 Corinthians 13:4', verse: '1CO 13:4', evidence: 'Love is patient, love is kind' },
-  { from: 28, to: 84, name: 'Thankfulness', text: 'Give thanks in every circumstance', ref: '1 Thessalonians 5:18', verse: '1TH 5:18', evidence: 'Give thanks in every circumstance' },
-  { from: 51, to: 67, name: 'Helping', text: 'Carry one another\u2019s burdens', ref: 'Galatians 6:2', verse: 'GAL 6:2', evidence: 'Carry one another’s burdens' },
-  { from: 72, to: 91, name: 'Honesty', text: 'Speak truthfully to his neighbor', ref: 'Ephesians 4:25', verse: 'EPH 4:25', evidence: 'speak truthfully to his neighbor' },
+  { from: 9, to: 15, name: 'Help', story: 'A man called Help reaches out his hand and pulls Christian out of the bog.', text: 'He lifted me up from the pit of despair, out of the miry clay', ref: 'Psalm 40:2', verse: 'PSA 40:2', evidence: 'out of the miry clay' },
+  { from: 14, to: 27, name: 'Goodwill opens the gate', story: 'Christian knocks at the Wicket Gate and Goodwill opens it and pulls him in.', text: 'Knock, and the door will be opened to you', ref: 'Matthew 7:7', verse: 'MAT 7:7', evidence: 'knock, and the door will be opened to you' },
+  { from: 28, to: 33, name: 'The Interpreter\u2019s House', story: 'The Interpreter lights a candle and shows Christian pictures that help him on the way.', text: 'Your word is a lamp to my feet', ref: 'Psalm 119:105', verse: 'PSA 119:105', evidence: 'Your word is a lamp to my feet' },
+  { from: 30, to: 50, name: 'The burden falls', story: 'At the Cross, Christian\u2019s heavy burden rolls off his back and is gone. He gets a scroll to keep.', text: 'Come to Me, all you who are weary and burdened, and I will give you rest', ref: 'Matthew 11:28', verse: 'MAT 11:28', evidence: 'weary and burdened, and I will give you rest' },
+  { from: 69, to: 72, name: 'The Key of Promise', story: 'In Doubting Castle, Christian remembers a key called Promise. It opens every door, and out they go!', text: 'Never will I leave you, never will I forsake you', ref: 'Hebrews 13:5', verse: 'HEB 13:5', evidence: 'Never will I leave you, never will I forsake you' },
+  { from: 80, to: 99, name: 'The Shepherds', story: 'Kind shepherds on the Delectable Mountains show the pilgrims the gate of the Celestial City far away.', text: 'The LORD is my shepherd; I shall not want', ref: 'Psalm 23:1', verse: 'PSA 23:1', evidence: 'The LORD is my shepherd' },
 ]
 export const SNAKES: Jump[] = [
-  { from: 17, to: 7, name: 'Grumbling', text: 'Do everything without complaining', ref: 'Philippians 2:14', verse: 'PHP 2:14', evidence: 'Do everything without complaining' },
-  { from: 54, to: 34, name: 'Selfishness', text: 'Look not only to your own interests, but also to the interests of others', ref: 'Philippians 2:4', verse: 'PHP 2:4', evidence: 'interests of others' },
-  { from: 62, to: 43, name: 'Unkind words', text: 'Let no unwholesome talk come out of your mouths', ref: 'Ephesians 4:29', verse: 'EPH 4:29', evidence: 'only what is helpful' },
-  { from: 64, to: 60, name: 'Showing off', text: 'It does not boast', ref: '1 Corinthians 13:4', verse: '1CO 13:4', evidence: 'it does not boast' },
-  { from: 87, to: 57, name: 'Losing your temper', text: 'Slow to speak, and slow to anger', ref: 'James 1:19', verse: 'JAS 1:19', evidence: 'slow to anger' },
-  { from: 98, to: 79, name: 'Pride', text: 'Pride goes before destruction', ref: 'Proverbs 16:18', verse: 'PRO 16:18', evidence: 'Pride goes before destruction' },
+  { from: 12, to: 8, name: 'The Slough of Despond', story: 'Christian slips into a muddy bog and his burden makes him sink. Squelch!', text: 'I have sunk into the miry depths', ref: 'Psalm 69:2', verse: 'PSA 69:2', evidence: 'I have sunk into the miry depths' },
+  { from: 19, to: 4, name: 'Mr Worldly Wiseman\u2019s shortcut', story: 'Mr Worldly Wiseman sends Christian the wrong way, round the steep side of Mount Sinai.', text: 'Lean not on your own understanding', ref: 'Proverbs 3:5', verse: 'PRO 3:5', evidence: 'lean not on your own understanding' },
+  { from: 43, to: 38, name: 'Asleep in the arbour', story: 'Halfway up the Hill Difficulty, Christian naps in a shady arbour and drops his scroll. Back he goes to find it.', text: 'A little sleep, a little slumber', ref: 'Proverbs 6:10', verse: 'PRO 6:10', evidence: 'A little sleep, a little slumber' },
+  { from: 53, to: 41, name: 'Apollyon', story: 'A big shadowy winged shape blocks the Valley path. Christian holds up his shield and stands firm.', text: 'Take up the shield of faith', ref: 'Ephesians 6:16', verse: 'EPH 6:16', evidence: 'take up the shield of faith' },
+  { from: 66, to: 47, name: 'Vanity Fair', story: 'A noisy fair where everyone shouts \u201cBuy, buy!\u201d The pilgrims will not stop to buy, and the crowd is cross.', text: 'Do not love the world or anything in the world', ref: '1 John 2:15', verse: '1JN 2:15', evidence: 'Do not love the world or anything in the world' },
+  { from: 75, to: 68, name: 'Giant Despair', story: 'A grumpy giant locks the pilgrims in Doubting Castle because they wandered off the path.', text: 'Put your hope in God', ref: 'Psalm 42:5', verse: 'PSA 42:5', evidence: 'Put your hope in God' },
+  { from: 88, to: 73, name: 'The Enchanted Ground', story: 'The air here makes the pilgrims very sleepy. They keep each other awake by talking.', text: 'Let us not sleep as the others do', ref: '1 Thessalonians 5:6', verse: '1TH 5:6', evidence: 'let us not sleep as the others do' },
 ]
+/** Counters: things Christian carries in the story. */
+export const TOKENS = [
+  { id: 'burden', name: 'Burden' }, { id: 'scroll', name: 'Scroll' }, { id: 'key', name: 'Key of Promise' },
+  { id: 'shield', name: 'Shield of faith' }, { id: 'staff', name: 'Pilgrim\u2019s staff' },
+] as const
 /** Move the current player. You need the exact number to land on 100; too high and you stay put. */
-export function snakesMove(r: Race, roll: number): Race {
+export function snakesMove(r: Race, roll: number): Race & { jump?: Jump | null } {
   if (r.winner !== null) return r
+  let jump: Jump | null = null
   const players = r.players.map(p => ({ ...p })), me = players[r.turn]
   let note = ''
   if (me.pos + roll > 100) note = `${me.name} needs exactly ${100 - me.pos} to reach the end.`
   else {
     me.pos += roll
     const j = [...LADDERS, ...SNAKES].find(x => x.from === me.pos)
-    if (j) { const up = j.to > j.from; me.pos = j.to; note = `${up ? 'Ladder' : 'Snake'}: ${j.name}. \u201c${j.text}\u201d (${j.ref})` }
+    if (j) { jump = j; const up = j.to > j.from; me.pos = j.to; note = `${up ? 'Help' : 'Danger'}: ${j.name}` }
   }
   const winner = me.pos === 100 ? r.turn : null
-  return { players, turn: winner !== null || roll === 6 ? r.turn : (r.turn + 1) % players.length, last: roll, note, winner }
+  return { players, turn: winner !== null || roll === 6 ? r.turn : (r.turn + 1) % players.length, last: roll, note, winner, jump }
 }
 /** Square number to grid position on a boustrophedon 10x10 board (1 at bottom left). */
 export function squareXY(n: number) {

@@ -29,5 +29,6 @@ const S = scenes as Record<string, { file: string; source: string }>
     </ul>
     <h2 class="mt-8 text-2xl font-semibold">Bible text and maps</h2>
     <p class="mt-2 text-base leading-relaxed">All Bible quotes and references in these games are from the Berean Standard Bible (BSB), which is in the public domain. Every quote, fact, quiz answer and verse on the boards is checked against the BSB text in the tests. Story cards and captions are short retellings with their references. Real or Made Up? includes silly made-up statements on purpose; each one is followed by the real answer. Top Trumps numbers are just for fun, not a judgement of anyone. The Out of Egypt board and Journey Map are simplified. Map captions are short retellings with their references. The Journey Map is simplified: places are shown roughly where they were, and the routes between them are not exact. The pictures on the object cards in Pairs were drawn for this game.</p>
+    <p class="mt-2 text-base leading-relaxed">Pilgrim’s Way follows The Pilgrim’s Progress by John Bunyan (1678), which is in the public domain. Its help and danger captions are short retellings for young children, not quotes from the book and not Scripture. The map, landmarks and counters were drawn for this game.</p>
   </main>
 </template>

@@ -27,7 +27,7 @@ const top = computed(() => t.value && t.value.hands[mode.value === 'cpu' ? 0 : t
       <button class="min-h-14 rounded-full bg-linen px-6 text-xl font-semibold text-ink" @click="start('pass')">Two players, one device</button>
     </div>
     <template v-else>
-      <p class="mt-3 text-lg">{{ names[0] }}: {{ t.hands[0].length }} cards · {{ names[1] }}: {{ t.hands[1].length }} cards<span v-if="t.pot.length"> · {{ t.pot.length }} in the middle</span> · Round {{ t.rounds + 1 }} of 12</p>
+      <p class="mt-3 text-lg">{{ names[0] }}: {{ t.hands[0].length }} cards, {{ names[1] }}: {{ t.hands[1].length }} cards<span v-if="t.pot.length">, {{ t.pot.length }} in the middle</span>. Round {{ t.rounds + 1 }} of 12</p>
       <div v-if="t.last" class="mt-3 rounded-lg bg-[#16294a] p-3 text-lg" aria-live="polite">
         {{ label(t.last.trait) }}: {{ byId(t.last.a).name }} {{ STATS[t.last.a][t.last.trait] }}, {{ byId(t.last.b).name }} {{ STATS[t.last.b][t.last.trait] }}.
         {{ t.last.winner === null ? 'A tie! Both cards wait in the middle.' : `${names[t.last.winner]} ${t.last.winner === 0 && mode === 'cpu' ? 'win' : 'wins'} the cards.` }}

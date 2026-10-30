@@ -13,7 +13,7 @@ const sections = [
     { href: '#/quiz', title: 'Quiz Night', blurb: 'Three rounds for 2 to 4 teams, with a big scoreboard.', icon: 'quiz' },
   ] },
   { title: 'Board games', games: [
-    { href: '#/snakes', title: 'Pilgrim’s Way', blurb: 'Snakes and ladders with good and bad habits.', icon: 'snakes' },
+    { href: '#/snakes', title: 'Pilgrim’s Way', blurb: 'Snakes and ladders on the road from The Pilgrim’s Progress.', icon: 'snakes' },
     { href: '#/exodus', title: 'Out of Egypt', blurb: 'Race from Egypt to the promised land with story cards.', icon: 'exodus' },
     { href: '#/ark', title: 'Ark Rescue', blurb: 'Work together to load the animals before the rain.', icon: 'ark' },
     { href: '#/trumps', title: 'Bible Top Trumps', blurb: 'Faith, courage, kindness and wisdom cards.', icon: 'trumps' },
@@ -21,15 +21,20 @@ const sections = [
 ]
 </script>
 <template>
-  <main class="mx-auto max-w-4xl px-4 py-8 font-story text-linen">
-    <h1 tabindex="-1" class="text-4xl font-semibold outline-none sm:text-5xl">Bible Games</h1>
-    <p class="mt-2 text-lg text-[#dfe6f0]">Fourteen games with people and stories from the Bible. Play on one screen together.</p>
-    <section v-for="sec in sections" :key="sec.title" class="mt-8">
-    <h2 class="text-2xl font-semibold">{{ sec.title }}</h2>
-    <ul class="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="g in sec.games" :key="g.href">
-        <a :href="g.href" class="flex h-full min-h-32 items-center gap-4 rounded-xl bg-[#16294a] p-5 shadow-[0_6px_0_#0f1d33] transition-transform hover:-translate-y-0.5 motion-reduce:transition-none">
-          <svg viewBox="0 0 48 48" class="h-16 w-16 shrink-0" aria-hidden="true">
+  <main class="mx-auto max-w-5xl px-4 py-6 font-story text-linen sm:py-10">
+    <header class="grid overflow-hidden border-4 border-ink bg-[#F3E6C8] text-ink sm:grid-cols-[1.1fr_1fr]">
+      <img :src="`scenes/noah-5.webp`" width="480" height="352" alt="Noah and his family under a rainbow beside the ark" class="h-full w-full border-b-4 border-ink object-cover sm:border-b-0 sm:border-r-4" />
+      <div class="flex flex-col justify-center p-6 sm:p-8">
+        <h1 tabindex="-1" class="text-5xl font-semibold leading-none outline-none sm:text-6xl">Bible Games</h1>
+        <p class="mt-4 max-w-[34ch] text-xl leading-snug">Fourteen games with people and stories from the Bible, for one screen and a sofa full of family.</p>
+      </div>
+    </header>
+    <section v-for="sec in sections" :key="sec.title" class="mt-10">
+    <h2 class="border-b-2 border-saffron pb-2 text-2xl font-semibold">{{ sec.title }}</h2>
+    <ul class="grid sm:grid-cols-2 sm:gap-x-8">
+      <li v-for="g in sec.games" :key="g.href" class="border-b border-[#3a5277]">
+        <a :href="g.href" class="group flex min-h-24 items-center gap-4 py-3">
+          <svg viewBox="0 0 48 48" class="h-14 w-14 shrink-0" aria-hidden="true">
             <circle cx="24" cy="24" r="23" fill="#E3A23B" />
             <g fill="none" stroke="#2B2117" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <template v-if="g.icon === 'guess'"><path d="M18 18a6 6 0 1 1 8 5.6c-1.5.6-2 1.6-2 3.4" /><circle cx="24" cy="34" r="1.2" fill="#2B2117" /></template>
@@ -48,7 +53,7 @@ const sections = [
               <template v-else><path d="M10 34c6-2 6-10 13-10s7-8 15-10" stroke-dasharray="3 4" /><circle cx="10" cy="34" r="2.5" fill="#2B2117" /><circle cx="38" cy="14" r="2.5" fill="#2B2117" /></template>
             </g>
           </svg>
-          <span><span class="block text-2xl font-semibold text-saffron">{{ g.title }}</span><span class="mt-1 block text-base text-[#dfe6f0]">{{ g.blurb }}</span></span>
+          <span><span class="block text-2xl font-semibold text-saffron group-hover:underline group-hover:underline-offset-4">{{ g.title }}</span><span class="mt-1 block text-base text-[#dfe6f0]">{{ g.blurb }}</span></span>
         </a>
       </li>
     </ul>

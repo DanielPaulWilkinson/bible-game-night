@@ -1,44 +1,35 @@
-# Bible Guess Who: design plan
+# Design: pen-and-wash storybook
 
-Audience: Daniel, Jonah and Elijah at the kitchen table, two devices, questions asked out loud.
-Job: show 24 faces clearly, make flipping one down feel like turning a tile, and keep the secret person safe from a peeking brother.
+Ground: the Sweet Publishing pictures are pen line with soft watercolour wash.
+The app should feel like the page those pictures sit on, read on a sofa by
+small boys and their family on a games night.
 
-## Direction: "Tissot's sketchbook on a lapis tent cloth"
-Pictures were first James Tissot watercolours; they are now Jim Padgett's Sweet Publishing illustrations (CC BY-SA 3.0), which are warmer and friendlier for small children. The palette below still fits them: dusty
-Near-Eastern daylight, linen, saffron and lapis. Not cream-and-terracotta, not a SaaS card grid.
+## Tokens (6)
 
-## Colour
-- Lapis `#1E3557`: the table cloth (page background)
-- Linen `#FAF3E3`: card faces
-- Saffron `#E3A23B`: the one accent (secret card frame, focus ring, New game)
-- Ink `#2B2117`: text on linen
-- Olive `#5E6B2F` / Pomegranate `#9B2C45`: small Old / New Testament corner marks (a real clue, so they earn their place)
+| Name    | Hex     | Use                                              |
+|---------|---------|--------------------------------------------------|
+| Lapis   | #1E3557 | The night-time page. Flat, no gradient.          |
+| Vellum  | #F3E6C8 | Paper for pictures, the menu hero, boards, cards |
+| Ink     | #2B2117 | Pen line: borders, text on vellum                |
+| Saffron | #E3A23B | Titles and the one action button on a screen     |
+| Olive   | #5E6B2F | Good things: helps, right answers                |
+| Pom     | #9B2C45 | Setbacks: dangers, wrong answers                 |
 
-## Type
-One serif family (Iowan Old Style / Palatino / Georgia system stack, no web font download) at three sizes:
-names 15-17px semibold, headings 28px, facts 18px with 1.5 line height. Sentence case everywhere.
+Linen #FAF3E3 stays as body text on lapis only.
 
-## Layout
-```
-desktop/tablet                      phone
-+---------------------------------+ +-----------------+
-| [secret: portrait | Show/Hide]  | | [secret | Hide] |
-| [New game]  18 of 24 still up   | | [New game] 18/24|
-| [][][][][][]                    | | [][][][]        |
-| [][][][][][]   6 x 4            | | [][][][]  4 x 6 |
-| [][][][][][]                    | | ...             |
-| [][][][][][]                    | |                 |
-| Picture credits                 | | credits         |
-+---------------------------------+ +-----------------+
-```
-Left-aligned controls, centred board, max width ~1100px.
+Type: one system book serif (Iowan Old Style, Palatino, Georgia). Big sizes
+for reading across a room: 20px body, 48–60px titles. Sentence case, no
+all-caps labels, no eyebrows. Italic for small source labels such as
+"From The Pilgrim's Progress".
 
 ## Principles
-- The one bold thing: the secret card, framed in saffron like a gilded icon, covered by a lapis "seal" when hidden.
-- Flipped-down cards go sepia-grey and sink slightly (a turned tile); that is the only motion, and it answers a tap.
-- Testament corner marks are the only decoration, because they are a clue.
-- Big targets (cards ≥ 72px wide on phones), visible focus, reduced motion respected, no tracking, no server.
 
-## Review against the brief
-First draft used a cream background with a terracotta accent; that is the generic default, so the background
-moved to lapis (from Tissot's skies) and the accent to saffron.
+1. One bold thing: the menu's frontispiece, a real Sweet Publishing picture in
+   a thick ink frame on vellum. Everything else stays quiet.
+2. Lists, not card kits. Games are a contents page with ink rules.
+3. Ink borders, not shadows. Square or slightly rounded corners.
+4. Motion only answers a tap (flip, roll). Nothing moves on its own; reduced
+   motion is honoured globally.
+5. Plain separators in meta text: commas and full stops, not middle dots.
+6. Touch targets at least 48px, 56px for main actions. Text under 80 chars a line.
+7. Boards are drawn maps on vellum, in pen and wash, never scary.

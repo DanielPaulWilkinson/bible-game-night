@@ -163,7 +163,7 @@ function closeInfo() { dialog.value?.close(); info.value = null }
           <h2 id="info-name" class="text-2xl font-semibold">{{ info.name }}</h2>
           <p class="mt-2 text-lg leading-relaxed">{{ info.fact }}</p>
           <p class="mt-1 text-base text-[#5a4a38]">{{ info.ref }}</p>
-          <p class="mt-1 text-sm text-[#5a4a38]">{{ info.testament === 'old' ? 'Old' : 'New' }} Testament · {{ info.gender }}<template v-if="info.roles.length"> · {{ info.roles.join(', ') }}</template></p>
+          <p class="mt-1 text-sm text-[#5a4a38]">{{ info.testament === 'old' ? 'Old' : 'New' }} Testament, {{ info.gender }}<template v-if="info.roles.length">. {{ info.roles.join(', ') }}</template></p>
         </div>
       </div>
       <div class="px-5 pb-5"><button class="min-h-12 w-full rounded-full bg-lapis text-base font-semibold text-linen" @click="closeInfo">Close</button></div>

@@ -78,15 +78,24 @@ describe('Quiz night', () => {
   })
 })
 
-describe('Pilgrim\u2019s Way', () => {
+describe('Pilgrim\u2019s Way (after The Pilgrim\u2019s Progress)', () => {
   it('ladders go up, snakes go down, no square has two', () => {
     G.LADDERS.forEach(l => expect(l.to).toBeGreaterThan(l.from)); G.SNAKES.forEach(s => expect(s.to).toBeLessThan(s.from))
     const froms = [...G.LADDERS, ...G.SNAKES].map(j => j.from), tos = [...G.LADDERS, ...G.SNAKES].map(j => j.to)
     expect(new Set(froms).size).toBe(froms.length); froms.forEach(f => expect(tos).not.toContain(f))
   })
-  it('climbs a ladder and passes the turn', () => {
-    const r = G.snakesMove(G.newRace(['A', 'B']), 3)
-    expect(r.players[0].pos).toBe(14); expect(r.turn).toBe(1); expect(r.note).toContain('Kindness')
+  it('climbs a help and passes the turn', () => {
+    const r = G.snakesMove(G.newRace(['A', 'B']), 8)
+    expect(r.players[0].pos).toBe(15); expect(r.turn).toBe(1); expect(r.jump?.name).toBe('Help')
+  })
+  it('a danger slides you back and is reported for the pop-up', () => {
+    const r = G.snakesMove({ ...G.newRace(['A', 'B']), players: [{ name: 'A', pos: 50 }, { name: 'B', pos: 1 }] }, 3)
+    expect(r.players[0].pos).toBe(41); expect(r.jump?.name).toBe('Apollyon')
+  })
+  it('landmarks run from the City of Destruction to the Celestial City, and every help and danger has a story caption', () => {
+    expect(G.LANDMARKS[0]).toEqual({ square: 1, name: 'City of Destruction' }); expect(G.LANDMARKS.at(-1)).toEqual({ square: 100, name: 'Celestial City' })
+    for (const j of [...G.LADDERS, ...G.SNAKES]) expect(j.story.length).toBeGreaterThan(20)
+    expect(G.TOKENS.map(t => t.id)).toEqual(['burden', 'scroll', 'key', 'shield', 'staff'])
   })
   it('a six gives another go, and you need the exact roll to finish', () => {
     let r = G.newRace(['A', 'B']); r = G.snakesMove(r, 6); expect(r.turn).toBe(0)

@@ -22,7 +22,7 @@ const letters = ['A', 'B', 'C']
         </li>
       </ul>
       <section v-if="q" class="mt-6 rounded-xl bg-[#16294a] p-6 shadow-[0_6px_0_#0f1d33] sm:p-8">
-        <p class="text-lg text-[#dfe6f0]">Round {{ n.round + 1 }}: {{ QUIZ[n.round].title }} · Question {{ n.at + 1 }} of 5</p>
+        <p class="text-lg text-[#dfe6f0]">Round {{ n.round + 1 }}: {{ QUIZ[n.round].title }}. Question {{ n.at + 1 }} of 5</p>
         <p class="mt-2 text-3xl font-semibold sm:text-5xl">{{ q.q }}</p>
         <ol class="mt-4 grid gap-3 sm:grid-cols-3">
           <li v-for="(c, i) in q.choices" :key="c" class="rounded-lg px-4 py-3 text-2xl sm:text-3xl" :class="n.shown && c === q.answer ? 'bg-saffron font-semibold text-ink' : 'bg-lapis'">{{ letters[i] }}. {{ c }}<span v-if="n.shown && c === q.answer" class="sr-only"> (correct)</span></li>

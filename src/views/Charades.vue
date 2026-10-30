@@ -44,7 +44,7 @@ const endTurn = () => { c.value = nextTeam(c.value!); showing.value = false; t.v
         <div class="text-center">
           <p class="text-6xl font-semibold tabular-nums" :class="t.left <= 10 ? 'text-saffron' : ''" role="timer" aria-live="off">{{ t.left }}</p>
           <p class="text-base text-[#dfe6f0]">seconds left</p>
-          <p class="mt-2 text-lg">Got {{ c.got }} · Passed {{ c.passed }}</p>
+          <p class="mt-2 text-lg">Got {{ c.got }}, passed {{ c.passed }}</p>
           <div class="mt-4 flex flex-col gap-3">
             <button class="min-h-14 rounded-full bg-saffron text-xl font-semibold text-ink disabled:opacity-60" :disabled="!t.running" @click="c = gotIt(c)">Got it!</button>
             <button class="min-h-14 rounded-full bg-linen text-xl font-semibold text-ink disabled:opacity-60" :disabled="!t.running" @click="c = pass(c)">Pass</button>

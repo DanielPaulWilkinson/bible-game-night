@@ -1,4 +1,4 @@
-1CO 13:4	Love is patient, love is kind. It does not envy, it does not boast, it is not proud.
+1JN 2:15	Do not love the world or anything in the world. If anyone loves the world, the love of the Father is not in him.
 1KI 17:6	The ravens would bring him bread and meat in the morning and evening, and he would drink from the brook.
 1KI 18:36	At the time of the evening sacrifice, Elijah the prophet approached the altar and said, “O LORD, God of Abraham, Isaac, and Israel, let it be known this day that You are God in Israel and that I am Your servant and have done all these things at Your command.
 1KI 3:9	Therefore give Your servant an understanding heart to judge Your people and to discern between good and evil. For who is able to govern this great people of Yours?”
@@ -6,13 +6,11 @@
 1SA 17:4	Then a champion named Goliath, who was from Gath, came out from the Philistine camp. He was six cubits and a span in height,
 1SA 17:50	Thus David prevailed over the Philistine with a sling and a stone; without a sword in his hand he struck down the Philistine and killed him.
 1SA 1:27	I prayed for this boy, and since the LORD has granted me what I asked of Him,
-1TH 5:18	Give thanks in every circumstance, for this is God’s will for you in Christ Jesus.
+1TH 5:6	So then, let us not sleep as the others do, but let us remain awake and sober.
 DAN 6:10	Now when Daniel learned that the document had been signed, he went into his house, where the windows of his upper room opened toward Jerusalem, and three times a day he got down on his knees, prayed, and gave thanks to his God, just as he had done before.
 DAN 6:16	So the king gave the order, and they brought Daniel and threw him into the den of lions. The king said to Daniel, “May your God, whom you serve continually, deliver you!”
 DAN 6:22	My God sent His angel and shut the mouths of the lions. They have not hurt me, for I was found innocent in His sight, and I have done no wrong against you, O king.”
-EPH 4:25	Therefore each of you must put off falsehood and speak truthfully to his neighbor, for we are all members of one another.
-EPH 4:29	Let no unwholesome talk come out of your mouths, but only what is helpful for building up the one in need and bringing grace to those who listen.
-EPH 4:32	Be kind and tenderhearted to one another, forgiving each other just as in Christ God forgave you.
+EPH 6:16	In addition to all this, take up the shield of faith, with which you can extinguish all the flaming arrows of the evil one.
 EST 2:17	And the king loved Esther more than all the other women, and she found grace and favor in his sight more than all of the other virgins. So he placed the royal crown upon her head and made her queen in place of Vashti.
 EST 4:16	“Go and assemble all the Jews who can be found in Susa, and fast for me. Do not eat or drink for three days, night or day, and I and my maidens will fast as you do. After that, I will go to the king, even though it is against the law. And if I perish, I perish!”
 EXO 12:31	Then Pharaoh summoned Moses and Aaron by night and said, “Get up, leave my people, both you and the Israelites! Go, worship the LORD as you have requested.
@@ -26,7 +24,6 @@ EXO 19:20	The LORD descended to the top of Mount Sinai and called Moses to the s
 EXO 2:3	But when she could no longer hide him, she got him a papyrus basket and coated it with tar and pitch. Then she placed the child in the basket and set it among the reeds along the bank of the Nile.
 EXO 4:3	“Throw it on the ground,” said the LORD. So Moses threw it on the ground, and it became a snake, and he ran from it.
 EXO 5:1	After that, Moses and Aaron went to Pharaoh and said, “This is what the LORD, the God of Israel, says: ‘Let My people go, so that they may hold a feast to Me in the wilderness.’”
-GAL 6:2	Carry one another’s burdens, and in this way you will fulfill the law of Christ.
 GEN 21:6	Then Sarah said, “God has made me laugh, and everyone who hears of this will laugh with me.”
 GEN 2:2	And by the seventh day God had finished the work He had been doing; so on that day He rested from all His work.
 GEN 37:3	Now Israel loved Joseph more than his other sons, because Joseph had been born to him in his old age; so he made him a robe of many colors.
@@ -36,8 +33,7 @@ GEN 6:14	Make for yourself an ark of gopher wood; make rooms in the ark and coat
 GEN 7:9	came to Noah to enter the ark, two by two, male and female, as God had commanded Noah.
 GEN 8:11	And behold, the dove returned to him in the evening with a freshly plucked olive leaf in her beak. So Noah knew that the waters had receded from the earth.
 GEN 9:13	I have set My rainbow in the clouds, and it will be a sign of the covenant between Me and the earth.
-HEB 13:16	And do not neglect to do good and to share with others, for with such sacrifices God is pleased.
-JAS 1:19	My beloved brothers, understand this: Everyone should be quick to listen, slow to speak, and slow to anger,
+HEB 13:5	Keep your lives free from the love of money and be content with what you have, for God has said: “Never will I leave you, never will I forsake you.”
 JDG 4:14	Then Deborah said to Barak, “Arise, for this is the day that the LORD has delivered Sisera into your hand. Has not the LORD gone before you?” So Barak came down from Mount Tabor with ten thousand men following him.
 JHN 11:21	Martha said to Jesus, “Lord, if You had been here, my brother would not have died.
 JHN 1:29	The next day John saw Jesus coming toward him and said, “Look, the Lamb of God, who takes away the sin of the world!
@@ -51,16 +47,21 @@ LUK 19:8	But Zacchaeus stood up and said to the Lord, “Look, Lord, half of my 
 LUK 1:38	“I am the Lord’s servant,” Mary answered. “May it happen to me according to your word.” Then the angel left her.
 LUK 2:7	And she gave birth to her firstborn, a Son. She wrapped Him in swaddling cloths and laid Him in a manger, because there was no room for them in the inn.
 MAT 10:1	And calling His twelve disciples to Him, Jesus gave them authority over unclean spirits, so that they could drive them out and heal every disease and sickness.
+MAT 11:28	Come to Me, all you who are weary and burdened, and I will give you rest.
 MAT 14:17	“We have here only five loaves of bread and two fish,” they answered.
 MAT 14:29	“Come,” said Jesus. Then Peter got down out of the boat, walked on the water, and came toward Jesus.
 MAT 16:16	Simon Peter answered, “You are the Christ, the Son of the living God.”
 MAT 4:18	As Jesus was walking beside the Sea of Galilee, He saw two brothers, Simon called Peter and his brother Andrew. They were casting a net into the sea, for they were fishermen.
+MAT 7:7	Ask, and it will be given to you; seek, and you will find; knock, and the door will be opened to you.
 NUM 11:1	Soon the people began to complain about their hardship in the hearing of the LORD, and when He heard them, His anger was kindled, and fire from the LORD blazed among them and consumed the outskirts of the camp.
 NUM 13:23	When they came to the Valley of Eshcol, they cut down a branch with a single cluster of grapes, which they carried on a pole between two men. They also took some pomegranates and figs.
-PHP 2:14	Do everything without complaining or arguing,
-PHP 2:4	Each of you should look not only to your own interests, but also to the interests of others.
 PHP 4:13	I can do all things through Christ who gives me strength.
-PRO 16:18	Pride goes before destruction, and a haughty spirit before a fall.
+PRO 3:5	Trust in the LORD with all your heart, and lean not on your own understanding;
+PRO 6:10	A little sleep, a little slumber, a little folding of the hands to rest,
+PSA 119:105	Your word is a lamp to my feet and a light to my path.
 PSA 23:1	The LORD is my shepherd; I shall not want.
+PSA 40:2	He lifted me up from the pit of despair, out of the miry clay; He set my feet upon a rock, and made my footsteps firm.
+PSA 42:5	Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him for the salvation of His presence.
+PSA 69:2	I have sunk into the miry depths, where there is no footing; I have drifted into deep waters, where the flood engulfs me.
 RUT 1:16	But Ruth replied: “Do not urge me to leave you or to turn from following you. For wherever you go, I will go, and wherever you live, I will live; your people will be my people, and your God will be my God.
 RUT 2:3	So Ruth departed and went out into the field and gleaned after the harvesters. And she happened to come to the part of the field belonging to Boaz, who was from the clan of Elimelech.

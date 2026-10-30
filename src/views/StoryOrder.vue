@@ -26,7 +26,7 @@ function dropBack() { if (dragId && o.value!.placed.includes(dragId)) o.value = 
         <li v-for="(s, i) in STORIES" :key="s.id">
           <button class="block w-full overflow-hidden rounded-xl bg-[#16294a] text-left shadow-[0_6px_0_#0f1d33]" @click="pick(i)">
             <img :src="`scenes/${s.scenes[0].id}.webp`" :alt="''" width="480" height="353" class="aspect-[4/3] w-full object-cover" />
-            <span class="block p-4"><span class="block text-2xl font-semibold text-saffron">{{ s.title }}</span><span class="text-base text-[#dfe6f0]">{{ s.scenes.length }} pictures · {{ s.ref }}</span></span>
+            <span class="block p-4"><span class="block text-2xl font-semibold text-saffron">{{ s.title }}</span><span class="text-base text-[#dfe6f0]">{{ s.scenes.length }} pictures, from {{ s.ref }}</span></span>
           </button>
         </li>
       </ul>
