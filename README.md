@@ -35,7 +35,7 @@ Play together:
 - **Quiz Night** (`#/quiz`): 2 to 4 teams, 3 rounds of 5, big scoreboard for a TV.
 
 Board games:
-- **Pilgrim's Way** (`#/snakes`): snakes and ladders on an old map of Christian's road in John Bunyan's The Pilgrim's Progress (1678, public domain). Helps carry you up and dangers send you back, each with a short story caption and a BSB verse. Counters are story items: burden, scroll, key of Promise, shield and staff.
+- **Pilgrim's Way** (`#/snakes`): snakes and ladders on an old map of Christian's road in John Bunyan's The Pilgrim's Progress (1678, public domain). Helps carry you up and dangers send you back, each with a short story caption and a BSB verse. Counters are story items: burden, scroll, key of Promise, shield and staff. The fourteen place pictures are AI-generated pen-and-wash illustrations (public/places).
 - **Out of Egypt** (`#/exodus`): 30-space route from Egypt to the Jordan with 10 story cards.
 - **Ark Rescue** (`#/ark`): cooperative; load 8 pairs before the rain meter reaches 6.
 - **Bible Top Trumps** (`#/trumps`): 24 cards with Faith, Courage, Kindness, Wisdom; versus computer or pass-and-play.
