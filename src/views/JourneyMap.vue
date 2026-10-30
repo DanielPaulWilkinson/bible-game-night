@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { JOURNEYS, project, stepStop } from '../games'
 import Back from './Back.vue'
@@ -34,7 +35,7 @@ onMounted(() => addEventListener('keydown', onKey)); onUnmounted(() => removeEve
 <template>
   <main class="mx-auto max-w-5xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Journey Map</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="map" class="h-14 w-14 shrink-0" />Journey Map</h1>
     <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Choose a journey">
       <button v-for="(jj, i) in JOURNEYS" :key="jj.id" class="min-h-12 rounded-full px-5 text-base font-semibold" :class="which === i ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="which === i" @click="choose(i)">{{ jj.title }}</button>
     </div>

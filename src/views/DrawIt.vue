@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { ref, onMounted, watch } from 'vue'
 import { DRAW_WORDS, startStroke, addPoint, undo, type Stroke } from '../games2'
 import { shuffle } from '../games'
@@ -26,7 +27,7 @@ const next = () => { at.value = (at.value + 1) % deck.value.length; secret.value
 <template>
   <main class="mx-auto max-w-4xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Draw It</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="draw" class="h-14 w-14 shrink-0" />Draw It</h1>
     <p class="mt-1 text-lg text-[#dfe6f0]">The drawer peeks at the secret word, then draws it. Everyone else guesses. No letters allowed!</p>
     <div class="mt-4 flex flex-wrap items-center gap-3">
       <button class="min-h-12 rounded-full bg-saffron px-5 text-base font-semibold text-ink" :aria-pressed="secret" @click="secret = !secret">{{ secret ? 'Hide the word' : 'Drawer: tap to see the word' }}</button>

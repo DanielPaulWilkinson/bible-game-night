@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import figuresJson from '../figures.json'
 import Portrait from '../Portrait.vue'
@@ -61,7 +62,7 @@ function closeInfo() { dialog.value?.close(); info.value = null }
 <template>
   <main v-if="mode === 'setup'" class="mx-auto max-w-3xl px-4 py-8 font-story text-linen">
     <a href="#/" class="inline-flex min-h-12 items-center underline underline-offset-4">Back to all games</a>
-    <h1 class="text-3xl font-semibold sm:text-4xl">Bible Guess Who</h1>
+    <h1 class="flex items-center gap-3 text-3xl font-semibold sm:text-4xl"><GameLogo id="guess" class="h-14 w-14 shrink-0" />Bible Guess Who</h1>
     <p class="mt-2 text-lg text-[#dfe6f0]">24 people from the Bible. Ask yes-or-no questions to find the other player's secret person.</p>
     <h2 class="mt-6 text-2xl font-semibold">How are you playing?</h2>
     <div class="mt-3 grid gap-4 sm:grid-cols-2">

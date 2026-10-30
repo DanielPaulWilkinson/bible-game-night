@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import figuresJson from '../figures.json'
 import type { Figure } from '../game'
@@ -20,7 +21,7 @@ const top = computed(() => t.value && t.value.hands[mode.value === 'cpu' ? 0 : t
 <template>
   <main class="mx-auto max-w-4xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Bible Top Trumps</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="trumps" class="h-14 w-14 shrink-0" />Bible Top Trumps</h1>
     <p class="mt-1 max-w-2xl rounded-lg bg-[#16294a] p-3 text-base">These are stories we love, not a score of who was holiest. The numbers are just for fun. Every person here was loved by God, and the Bible is honest about their good days and bad ones.</p>
     <div v-if="!t" class="mt-4 flex flex-wrap gap-3">
       <button class="min-h-14 rounded-full bg-saffron px-6 text-xl font-semibold text-ink" @click="start('cpu')">Play the computer</button>

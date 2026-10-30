@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import { STORIES, newOrder, place, moveTo, orderComplete, orderRight, rightSlots, type Order } from '../games'
 import Back from './Back.vue'
@@ -19,7 +20,7 @@ function dropBack() { if (dragId && o.value!.placed.includes(dragId)) o.value = 
 <template>
   <main class="mx-auto max-w-5xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Story Order</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="order" class="h-14 w-14 shrink-0" />Story Order</h1>
     <template v-if="!o">
       <p class="mt-1 text-lg text-[#dfe6f0]">Pick a story. Then tap the pictures in the order they happened.</p>
       <ul class="mt-4 grid gap-4 sm:grid-cols-3">

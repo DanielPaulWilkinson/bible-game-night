@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import figuresJson from '../figures.json'
 import type { Figure } from '../game'
@@ -21,7 +22,7 @@ const endTurn = () => { c.value = nextTeam(c.value!); showing.value = false; t.v
 <template>
   <main class="mx-auto max-w-4xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Bible Charades</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="charades" class="h-14 w-14 shrink-0" />Bible Charades</h1>
     <p class="mt-1 text-lg text-[#dfe6f0]">Act it out with no talking. Your team guesses before the time runs out.</p>
     <Names v-if="!c" label="Team" :defaults="['Team Sun', 'Team Star', 'Team Sea', 'Team Hill']" @start="n => (c = newCharades(n))" />
     <template v-else>

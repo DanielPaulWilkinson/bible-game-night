@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import figuresJson from '../figures.json'
 import type { Figure } from '../game'
@@ -28,7 +29,7 @@ const label = (c: { key: string; figureId: string; kind: string }) => !isUp(c.ke
 <template>
   <main class="mx-auto max-w-5xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Pairs</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="pairs" class="h-14 w-14 shrink-0" />Pairs</h1>
     <p class="mt-1 text-lg text-[#dfe6f0]">Turn over two cards. Find each person and the thing from their story.</p>
     <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="How many pairs">
       <button class="min-h-12 rounded-full px-5 text-base font-semibold" :class="size === 6 ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="size === 6" @click="start(6)">Easy: 6 pairs</button>

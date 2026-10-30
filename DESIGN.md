@@ -33,3 +33,8 @@ all-caps labels, no eyebrows. Italic for small source labels such as
 5. Plain separators in meta text: commas and full stops, not middle dots.
 6. Touch targets at least 48px, 56px for main actions. Text under 80 chars a line.
 7. Boards are drawn maps on vellum, in pen and wash, never scary.
+
+## Immersive pass
+- Game logos: `GameLogo.vue`, one family of lapis roundels with an ink rim, saffron inner ring and a vellum glyph drawn with a 2.5 ink line. Used on the menu and in every game header.
+- Pilgrim's Way: AI-generated pen-and-wash place pictures in `public/places` (96px medallions on the board, 240px on the help/danger card, lazy). Counters are small upright objects on a coloured plinth with a cast shadow; helps are shaded stepping stones that grow as they rise; dangers are sunken muddy tracks. Shared gradients live in `PilgrimDefs.vue`.
+- Motion only follows a roll (token glide, a glow on the mover's square, and a pan on phone) and is off under reduced motion.

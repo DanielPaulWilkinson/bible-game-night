@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import figuresJson from '../figures.json'
 import type { Figure } from '../game'
@@ -26,7 +27,7 @@ const latest = computed(() => called.value.length ? byId(called.value[called.val
   <main class="mx-auto max-w-4xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <div class="no-print">
       <Back />
-      <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Bible Bingo</h1>
+      <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="bingo" class="h-14 w-14 shrink-0" />Bible Bingo</h1>
       <p class="mt-1 text-lg text-[#dfe6f0]">One grown-up calls out people. Everyone else marks them on their card. Four in a row wins!</p>
       <div class="mt-3 flex flex-wrap gap-2" role="tablist" aria-label="Bingo screens">
         <button role="tab" :aria-selected="tab === 'card'" class="min-h-12 rounded-full px-5 text-base font-semibold" :class="tab === 'card' ? 'bg-saffron text-ink' : 'bg-linen text-ink'" @click="tab = 'card'">My card</button>

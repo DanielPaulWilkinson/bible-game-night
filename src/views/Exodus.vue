@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { ref } from 'vue'
 import { JOURNEY_CARDS, ROUTE_LENGTH, newRace, journeyMove, rollDie, type Card, type Race } from '../games2'
 import Back from './Back.vue'
@@ -15,7 +16,7 @@ const roll = () => { const res = journeyMove(r.value!, rollDie()); card.value = 
 <template>
   <main class="mx-auto max-w-5xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Out of Egypt</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="exodus" class="h-14 w-14 shrink-0" />Out of Egypt</h1>
     <p class="mt-1 text-lg text-[#dfe6f0]">Travel with Moses and the people of Israel from Egypt to the promised land. Land on a star to read a story card.</p>
     <Names v-if="!r" label="Player" :defaults="['Red', 'Blue', 'Green', 'Gold']" @start="x => { r = newRace(x); card = null }" />
     <div v-else class="mt-4 grid gap-5 lg:grid-cols-[minmax(0,1fr)_18rem]">

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { ref } from 'vue'
 import { ANIMALS, RAIN_MAX, newArk, arkRoll, rollDie, type Ark } from '../games2'
 import Back from './Back.vue'
@@ -10,7 +11,7 @@ const msg = (x: Ark) => x.last === null ? 'Roll to start loading.' : x.last === 
 <template>
   <main class="mx-auto max-w-4xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Ark Rescue</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="ark" class="h-14 w-14 shrink-0" />Ark Rescue</h1>
     <p class="mt-1 text-lg text-[#dfe6f0]">Work together! Take turns to roll and help the animals onto the ark before the rain meter fills. Roll 2 to 5 for one pair, 6 for two pairs. A 1 brings a rain cloud.</p>
     <Names v-if="!a" label="Helper" :min="1" :defaults="['Shem', 'Ham', 'Japheth', 'Noah']" start="Start loading" @start="x => (a = newArk(x))" />
     <template v-else>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import figuresJson from '../figures.json'
 import type { Figure } from '../game'
@@ -18,7 +19,7 @@ const canSpeak = typeof window !== 'undefined' && 'speechSynthesis' in window
 <template>
   <main class="mx-auto max-w-3xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Who said or wrote it?</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="quotes" class="h-14 w-14 shrink-0" />Who said or wrote it?</h1>
     <template v-if="!quizDone(q)">
       <p class="mt-1 text-lg text-[#dfe6f0]">Question {{ q.at + 1 }} of {{ q.rounds.length }}. Read the words out loud, then pick who said them.</p>
       <blockquote class="mt-4 rounded-xl bg-linen p-5 text-ink shadow-[0_6px_0_#0f1d33]">

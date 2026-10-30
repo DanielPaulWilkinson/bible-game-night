@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { describe, it, expect } from 'vitest'
 import F from '../src/figures.json'
 import { BSB, inVerse } from './bsb'
@@ -93,8 +94,11 @@ describe('Pilgrim\u2019s Way (after The Pilgrim\u2019s Progress)', () => {
     expect(r.players[0].pos).toBe(41); expect(r.jump?.name).toBe('Apollyon')
   })
   it('landmarks run from the City of Destruction to the Celestial City, and every help and danger has a story caption', () => {
-    expect(G.LANDMARKS[0]).toEqual({ square: 1, name: 'City of Destruction' }); expect(G.LANDMARKS.at(-1)).toEqual({ square: 100, name: 'Celestial City' })
+    expect(G.LANDMARKS[0]).toMatchObject({ square: 1, name: 'City of Destruction' }); expect(G.LANDMARKS.at(-1)).toMatchObject({ square: 100, name: 'Celestial City' })
     for (const j of [...G.LADDERS, ...G.SNAKES]) expect(j.story.length).toBeGreaterThan(20)
+    const ids = G.LANDMARKS.map(l => l.id)
+    for (const j of [...G.LADDERS, ...G.SNAKES]) expect(ids).toContain(j.place)
+    for (const id of ids) for (const f of [id, id + '-sm']) expect(existsSync(`public/places/${f}.webp`), f).toBe(true)
     expect(G.TOKENS.map(t => t.id)).toEqual(['burden', 'scroll', 'key', 'shield', 'staff'])
   })
   it('a six gives another go, and you need the exact roll to finish', () => {

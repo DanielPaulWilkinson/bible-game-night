@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import GameLogo from './GameLogo.vue'
 import { computed, ref } from 'vue'
 import { QUIZ, newQuizNight, quizQuestion, showAnswer, award, nextQuestion, quizNightDone, leaders, type QuizNight } from '../games2'
 import Back from './Back.vue'
@@ -10,7 +11,7 @@ const letters = ['A', 'B', 'C']
 <template>
   <main class="mx-auto max-w-6xl px-3 pb-10 pt-4 font-story text-linen sm:px-6">
     <Back />
-    <h1 class="mt-2 text-3xl font-semibold sm:text-4xl">Quiz Night</h1>
+    <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="quiz" class="h-14 w-14 shrink-0" />Quiz Night</h1>
     <template v-if="!n">
       <p class="mt-1 text-lg text-[#dfe6f0]">Three rounds of five questions. Put it on the TV or laptop. Teams shout or write their answer, then the host reveals it.</p>
       <Names label="Team" :defaults="['Lions', 'Lambs', 'Doves', 'Fish']" @start="x => (n = newQuizNight(x))" />
