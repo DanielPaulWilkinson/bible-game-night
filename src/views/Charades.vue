@@ -52,7 +52,7 @@ if (props.embedded) begin(props.names ?? ['Family'])
         <label class="mt-3 flex min-h-12 items-center gap-3 text-lg"><input v-model="hosting" type="checkbox" class="h-6 w-6" />Hosting: each family is a team</label>
         <label class="flex min-h-12 items-center gap-3 text-lg"><input v-model="shared" type="checkbox" class="h-6 w-6" />One family score: everyone plays together</label>
       </fieldset>
-      <button class="min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold text-ink ring-2 ring-ink">Start</button>
+      <button class="btn">Start</button>
     </form>
     <template v-else>
       <ul v-if="!embedded" class="mt-4 flex flex-wrap gap-3" aria-label="Scores">

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /** One orchestrated finish: a burst of stars in the app's colours, the winner's name large, a short fanfare.
- *  Reduced motion: no burst, the same card holds still. Worship rounds get a quiet "well done together". */
+ *  Reduced motion: no burst, the same card holds still. Worship rounds get a quiet"well done together". */
 import { computed, onMounted, ref } from 'vue'
 import { finishHeadline, type Finish } from '../phase24'
 import { cheer, chime } from '../sound'
@@ -33,7 +33,7 @@ onMounted(() => { h.value?.focus(); said.value = finishHeadline(props.result); i
     </ol>
     <p class="sr-only" role="status" aria-live="polite">{{ said }}</p>
     <slot />
-    <LineupNext v-if="inNight" class="relative text-left" @again="emit('again')" />
+    <LineupNext v-if="inNight" flat class="relative text-left" @again="emit('again')" />
     <div v-else class="relative mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
       <button type="button" class="btn" @click="emit('again')">{{ againLabel ?? 'Play again' }}</button>
       <a href="#/" class="btn2">Choose another game</a>

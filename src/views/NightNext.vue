@@ -3,7 +3,7 @@
 import { onMounted, ref } from 'vue'
 import NightPath from './NightPath.vue'
 type Stop = { id: string; title: string; icon: string }
-const props = defineProps<{ stops: Stop[]; at: number; scores?: { name: string; score: number }[]; done?: string }>()
+const props = defineProps<{ stops: Stop[]; at: number; scores?: { name: string; score: number }[]; done?: string; flat?: boolean }>()
 const emit = defineEmits<{ next: []; again: []; skip: []; end: [] }>()
 const cue = ref(false)
 const h = ref<HTMLElement | null>(null), c = ref<HTMLElement | null>(null)
@@ -14,7 +14,7 @@ onMounted(() => { h.value?.focus(); said.value = `${props.done ?? 'Game'} finish
 const go = async () => { if (next?.id === 'blessing') return emit('next'); cue.value = true; said.value = `Hand the phone to the next host. ${next?.title} is next.`; await Promise.resolve(); setTimeout(() => c.value?.focus(), 0) }
 </script>
 <template>
-  <section class="mt-6 border-t-4 border-ink pt-5 pb-20 text-ink sm:pb-0" aria-labelledby="nn-h">
+  <section :class="flat ? 'mt-6 border-t-4 border-ink pt-5 pb-20 sm:pb-0' : 'mt-6 rounded-xl border-4 border-ink bg-vellum p-5 pb-24 sm:pb-6'" class="text-ink" aria-labelledby="nn-h">
     <p class="sr-only" role="status" aria-live="polite">{{ said }}</p>
     <template v-if="!cue">
       <h2 id="nn-h" ref="h" tabindex="-1" class="text-3xl font-semibold outline-none">{{ done ? `${done} is done` : 'Game done' }}</h2>
@@ -24,10 +24,10 @@ const go = async () => { if (next?.id === 'blessing') return emit('next'); cue.v
       </ol>
       <p class="mt-5 text-xl font-semibold">Tonight so far</p>
       <NightPath :stops="stops" :at="at" />
-      <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-lg">
-        <button type="button" class="min-h-12 underline underline-offset-4" @click="emit('again')">Play this again</button>
-        <button v-if="after" type="button" class="min-h-12 underline underline-offset-4" @click="emit('skip')">Skip to {{ after.title }}</button>
-        <button type="button" class="min-h-12 underline underline-offset-4" @click="emit('end')">End game night</button>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2">
+        <button type="button" class="btn2" @click="emit('again')">Play this again</button>
+        <button v-if="after" type="button" class="btn2" @click="emit('skip')">Skip to {{ after.title }}</button>
+        <button type="button" class="btn3 sm:col-span-2" @click="emit('end')">End game night</button>
       </div>
       <div class="next-bar fixed inset-x-0 bottom-0 z-10 border-t-4 border-ink bg-vellum p-3 sm:static sm:mt-5 sm:border-0 sm:bg-transparent sm:p-0">
         <button type="button" class="btn w-full text-2xl sm:w-auto" @click="go">{{ label }}</button>

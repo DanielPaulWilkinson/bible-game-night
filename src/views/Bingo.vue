@@ -30,8 +30,8 @@ const latest = computed(() => called.value.length ? byId(called.value[called.val
       <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="bingo" class="h-14 w-14 shrink-0" />Bible Bingo</h1>
       <p class="mt-1 text-lg text-[#dfe6f0]">One grown-up calls out people. Everyone else marks them on their card. Four in a row wins!</p>
       <div class="mt-3 flex flex-wrap gap-2" role="tablist" aria-label="Bingo screens">
-        <button role="tab" :aria-selected="tab === 'card'" class="min-h-12 rounded-full px-5 text-base font-semibold" :class="tab === 'card' ? 'bg-saffron text-ink' : 'bg-linen text-ink'" @click="tab = 'card'">My card</button>
-        <button role="tab" :aria-selected="tab === 'caller'" class="min-h-12 rounded-full px-5 text-base font-semibold" :class="tab === 'caller' ? 'bg-saffron text-ink' : 'bg-linen text-ink'" @click="tab = 'caller'">Caller</button>
+        <button role="tab" :aria-selected="tab === 'card'" class="btn2" :class="tab === 'card' ? 'bg-saffron text-ink' : 'bg-linen text-ink'" @click="tab = 'card'">My card</button>
+        <button role="tab" :aria-selected="tab === 'caller'" class="btn2" :class="tab === 'caller' ? 'bg-saffron text-ink' : 'bg-linen text-ink'" @click="tab = 'caller'">Caller</button>
       </div>
 
       <section v-if="tab === 'card'" class="mt-4">
@@ -46,8 +46,8 @@ const latest = computed(() => called.value.length ? byId(called.value[called.val
           </li>
         </ul>
         <div class="mt-4 flex flex-wrap gap-3">
-          <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="newCard">New card</button>
-          <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="printSet">Print 4 cards</button>
+          <button class="btn2" @click="newCard">New card</button>
+          <button class="btn2" @click="printSet">Print 4 cards</button>
         </div>
       </section>
 
@@ -59,8 +59,8 @@ const latest = computed(() => called.value.length ? byId(called.value[called.val
             <p v-if="latest" class="mt-1 text-lg text-[#dfe6f0]">{{ latest.fact }}</p>
             <p class="mt-1 text-base text-[#dfe6f0]">{{ called.length }} of {{ figures.length }} called</p>
             <div class="mt-3 flex flex-wrap gap-3">
-              <button class="min-h-14 rounded-full bg-saffron px-7 text-lg font-semibold text-ink disabled:opacity-60" :disabled="called.length === figures.length" @click="caller = callNext(caller)">Call next person</button>
-              <button class="min-h-14 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="caller = newCaller(figures)">Start again</button>
+              <button class="btn disabled:opacity-60" :disabled="called.length === figures.length" @click="caller = callNext(caller)">Call next person</button>
+              <button class="btn2" @click="caller = newCaller(figures)">Start again</button>
             </div>
           </div>
         </div>

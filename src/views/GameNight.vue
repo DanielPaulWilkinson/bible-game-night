@@ -54,10 +54,10 @@ const mm = computed(() => `${Math.floor(t.value.left / 60)}:${String(t.value.lef
         </div>
         <div v-if="picked !== null" class="mt-3">
           <p class="text-xl">{{ w.text }} <span class="text-base italic">{{ w.reference }}</span></p>
-          <button class="mt-3 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink" @click="nextWord">Next word</button>
+          <button class="btn mt-3" @click="nextWord">Next word</button>
         </div>
       </section>
-      <button class="mt-6 min-h-14 rounded-full px-6 text-xl font-semibold ring-2 ring-linen" :class="t.running ? '' : 'bg-saffron text-ink'" @click="roundDone">{{ night.at === 2 ? 'Finish and bless' : 'Next round' }}</button>
+      <button :class="t.running ? 'btn2 mt-6' : 'btn mt-6'" @click="roundDone">{{ night.at === 2 ? 'Finish and bless' : 'Next round' }}</button>
     </template>
     <template v-else>
     <Celebrate v-if="!celebrated" :result="finish(night.names, night.scores, night.names.length > 1 ? 'compete' : 'coop')" :scores="night.names.map((name, i) => ({ name, score: night!.scores[i] }))" again-label="Go on to the blessing" @again="celebrated = true" />

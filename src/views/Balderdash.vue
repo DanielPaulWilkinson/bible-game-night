@@ -47,18 +47,18 @@ const allVoted = computed(() => voters.value.every(v => votes.value[v] !== undef
         <p class="mt-1 text-4xl font-semibold leading-tight">{{ e.term }}</p>
         <template v-if="step === 'term'">
           <p class="mt-3 text-xl">{{ names[reader] }} reads it out. {{ tier === 'A' && e.kind === 'bluff' ? 'Everyone else writes a made-up meaning in secret.' : 'Then everyone picks.' }}</p>
-          <button class="mt-4 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink" @click="toBluffs">{{ tier === 'A' && e.kind === 'bluff' ? 'Start writing' : 'Show the choices' }}</button>
+          <button class="btn mt-4" @click="toBluffs">{{ tier === 'A' && e.kind === 'bluff' ? 'Start writing' : 'Show the choices' }}</button>
         </template>
         <template v-else-if="step === 'bluff'">
           <div v-if="hidden" class="mt-4">
             <p class="text-xl">Pass the phone face down to <b>{{ names[writers[writer]] }}</b>.</p>
-            <button class="mt-3 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink" @click="hidden = false">I’m {{ names[writers[writer]] }}</button>
+            <button class="btn mt-3" @click="hidden = false">I’m {{ names[writers[writer]] }}</button>
           </div>
           <form v-else class="mt-4" @submit.prevent="saveBluff">
             <label for="bluff" class="block text-xl">Your made-up meaning</label>
             <input id="bluff" v-model="draft" maxlength="80" autocomplete="off" class="mt-2 min-h-14 w-full rounded-lg border-2 border-ink bg-linen px-3 text-xl" />
             <p v-if="warn" class="mt-2 text-lg text-pom" role="alert">{{ warn }}</p>
-            <button class="mt-3 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink">Hide it and pass on</button>
+            <button class="btn mt-3">Hide it and pass on</button>
           </form>
         </template>
         <template v-else>
@@ -74,7 +74,7 @@ const allVoted = computed(() => voters.value.every(v => votes.value[v] !== undef
               <span class="w-24 text-lg">{{ names[v] }}</span>
               <button v-for="(o, i) in opts" :key="i" type="button" role="radio" :aria-checked="votes[v] === i" class="min-h-12 min-w-12 rounded-full border-2 border-ink text-lg font-semibold" :class="votes[v] === i ? 'bg-saffron' : 'bg-linen'" :disabled="o.author === v" @click="votes = { ...votes, [v]: i }">{{ String.fromCharCode(65 + i) }}</button>
             </div>
-            <button class="mt-4 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink disabled:opacity-50" :disabled="!allVoted" @click="reveal">Reveal</button>
+            <button class="btn mt-4 disabled:opacity-50" :disabled="!allVoted" @click="reveal">Reveal</button>
           </fieldset>
           <div v-else class="mt-5 border-t-2 border-ink pt-4">
             <h2 class="text-2xl font-semibold">The real answer: {{ e.realAnswer }}</h2>
@@ -82,7 +82,7 @@ const allVoted = computed(() => voters.value.every(v => votes.value[v] !== undef
             <p class="mt-1 text-xl leading-snug">{{ e.text }}</p>
             <p class="mt-1 text-base italic">{{ e.reference }}, Berean Standard Bible<span v-if="e.tag === 'debated'">. Scholars still debate this one.</span><span v-if="e.tag === 'approx'">. The number is approximate.</span></p>
             <p class="mt-3 text-lg">{{ names.map((n, i) => gained[i] ? `${n} +${gained[i]}` : '').filter(Boolean).join(', ') || 'Nobody scored this time.' }}</p>
-            <button class="mt-4 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink" @click="next">Next word</button>
+            <button class="btn mt-4" @click="next">Next word</button>
           </div>
         </template>
       </section>

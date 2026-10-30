@@ -30,9 +30,9 @@ const next = () => { at.value = (at.value + 1) % deck.value.length; secret.value
     <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="draw" class="h-14 w-14 shrink-0" />Draw It</h1>
     <p class="mt-1 text-lg text-[#dfe6f0]">The drawer peeks at the secret word, then draws it. Everyone else guesses. No letters allowed!</p>
     <div class="mt-4 flex flex-wrap items-center gap-3">
-      <button class="min-h-12 rounded-full bg-saffron px-5 text-base font-semibold text-ink" :aria-pressed="secret" @click="secret = !secret">{{ secret ? 'Hide the word' : 'Drawer: tap to see the word' }}</button>
+      <button class="btn" :aria-pressed="secret" @click="secret = !secret">{{ secret ? 'Hide the word' : 'Drawer: tap to see the word' }}</button>
       <span v-if="secret" class="flex items-center gap-2 rounded-full bg-linen px-4 py-1 text-2xl font-semibold text-ink" aria-live="polite"><span class="h-10 w-10"><SymbolIcon :icon="deck[at].icon" /></span>{{ deck[at].word }}</span>
-      <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="start()">{{ t.running ? 'Restart timer' : 'Start timer' }}</button>
+      <button class="btn2" @click="start()">{{ t.running ? 'Restart timer' : 'Start timer' }}</button>
       <span class="text-3xl font-semibold tabular-nums" role="timer" :class="t.left <= 10 ? 'text-saffron' : ''">{{ t.left }}s</span>
     </div>
     <canvas ref="cv" :width="W" :height="H" class="mt-4 w-full touch-none rounded-xl shadow-[0_6px_0_#0f1d33]" role="img" aria-label="Drawing area" @pointerdown="down" @pointermove="move" @pointerup="drawing = false" @pointercancel="drawing = false" />
@@ -40,9 +40,9 @@ const next = () => { at.value = (at.value + 1) % deck.value.length; secret.value
       <div role="radiogroup" aria-label="Pen colour" class="flex gap-2">
         <button v-for="[c, n] in colors" :key="c" role="radio" :aria-checked="color === c" :aria-label="n" class="h-12 w-12 rounded-full ring-offset-2 ring-offset-lapis" :class="color === c ? 'ring-4 ring-linen' : ''" :style="{ background: c }" @click="color = c" />
       </div>
-      <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="strokes = undo(strokes)">Undo</button>
-      <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="strokes = []">Clear</button>
-      <button class="min-h-12 rounded-full bg-saffron px-5 text-base font-semibold text-ink" @click="next">Next word</button>
+      <button class="btn2" @click="strokes = undo(strokes)">Undo</button>
+      <button class="btn2" @click="strokes = []">Clear</button>
+      <button class="btn" @click="next">Next word</button>
     </div>
   </main>
 </template>

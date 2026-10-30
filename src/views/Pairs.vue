@@ -32,8 +32,8 @@ const label = (c: { key: string; figureId: string; kind: string }) => !isUp(c.ke
     <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="pairs" class="h-14 w-14 shrink-0" />Pairs</h1>
     <p class="mt-1 text-lg text-[#dfe6f0]">Turn over two cards. Find each person and the thing from their story.</p>
     <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="How many pairs">
-      <button class="min-h-12 rounded-full px-5 text-base font-semibold" :class="size === 6 ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="size === 6" @click="start(6)">Easy: 6 pairs</button>
-      <button class="min-h-12 rounded-full px-5 text-base font-semibold" :class="size === 10 ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="size === 10" @click="start(10)">Normal: 10 pairs</button>
+      <button class="btn2" :class="size === 6 ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="size === 6" @click="start(6)">Easy: 6 pairs</button>
+      <button class="btn2" :class="size === 10 ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="size === 10" @click="start(10)">Normal: 10 pairs</button>
     </div>
     <p class="mt-3 min-h-7 text-lg font-semibold text-saffron" aria-live="polite">{{ done ? `Well done! You found all ${size} pairs in ${p.moves} goes.` : status }}</p>
     <ul class="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3" :class="size === 10 ? 'md:grid-cols-5' : 'max-w-2xl md:grid-cols-4'">
@@ -52,6 +52,6 @@ const label = (c: { key: string; figureId: string; kind: string }) => !isUp(c.ke
         </button>
       </li>
     </ul>
-    <button v-if="done" class="mt-6 min-h-12 rounded-full bg-saffron px-6 text-base font-semibold text-ink" @click="start(size)">Play again</button>
+    <button v-if="done" class="btn mt-6" @click="start(size)">Play again</button>
   </main>
 </template>

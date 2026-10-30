@@ -26,8 +26,8 @@ const msg = (x: Ark) => x.last === null ? 'Roll to start loading.' : x.last === 
         <p class="text-xl">Rain meter: <strong class="text-saffron">{{ a.rain }} of {{ RAIN_MAX }}</strong></p>
       </div>
       <div class="mt-4 flex flex-wrap items-center gap-4"><Die :n="a.last" />
-        <button v-if="a.result === 'playing'" class="min-h-14 rounded-full bg-saffron px-6 text-xl font-semibold text-ink" @click="a = arkRoll(a, rollDie())">{{ a.players[a.turn] }}: roll</button>
-        <button v-else class="min-h-14 rounded-full bg-saffron px-6 text-xl font-semibold text-ink" @click="a = newArk(a.players)">{{ a.result === 'won' ? 'Play again' : 'Try again together' }}</button>
+        <button v-if="a.result === 'playing'" class="btn" @click="a = arkRoll(a, rollDie())">{{ a.players[a.turn] }}: roll</button>
+        <button v-else class="btn" @click="a = newArk(a.players)">{{ a.result === 'won' ? 'Play again' : 'Try again together' }}</button>
       </div>
       <p class="mt-3 text-2xl" aria-live="polite">{{ a.result === 'won' ? 'Everyone is safe on the ark! You did it together.' : a.result === 'again' ? 'The rain came first this time. Shall we try again?' : msg(a) }}</p>
       <p class="mt-4 text-base text-[#dfe6f0]">“…came to Noah to enter the ark, two by two.” Genesis 7:9 (BSB)</p>

@@ -33,7 +33,7 @@ describe('Menu redesign', () => {
 describe('deal never repeats', () => {
   it('has no duplicates and avoids the last lineup when it can', () => {
     const ids = Object.keys(MOOD)
-    for (const who of ['all', 'little', 'grown'] as const) for (let i = 0; i < 200; i++) {
+    for (const who of [null, 'little', 'grown'] as const) for (let i = 0; i < 200; i++) {
       const a = deal(ids, who); expect(new Set(a).size).toBe(a.length)
       const b = deal(ids, who, Math.random, a); expect(new Set(b).size).toBe(b.length)
     }

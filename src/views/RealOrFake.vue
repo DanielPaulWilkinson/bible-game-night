@@ -20,12 +20,12 @@ const f = computed(() => v.value.deck[v.value.at])
           <p class="mt-1 text-lg">Read it in {{ f.ref }}</p>
         </div>
       </div>
-      <button v-if="!v.revealed" class="mt-6 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold text-ink" @click="v = revealFact(v)">Reveal the answer</button>
-      <button v-else class="mt-6 min-h-14 rounded-full bg-linen px-8 text-xl font-semibold text-ink" @click="v = nextFact(v)">Next one</button>
+      <button v-if="!v.revealed" class="btn mt-6" @click="v = revealFact(v)">Reveal the answer</button>
+      <button v-else class="btn2 mt-6" @click="v = nextFact(v)">Next one</button>
     </section>
     <section v-else class="mt-6 rounded-xl bg-[#16294a] p-6 text-center">
       <p class="text-3xl font-semibold">All done! Well played.</p>
-      <button class="mt-4 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold text-ink" @click="v = newVote()">Play again</button>
+      <button class="btn mt-4" @click="v = newVote()">Play again</button>
     </section>
     <p class="mt-4 text-base text-[#dfe6f0]">Bible references are from the Berean Standard Bible.</p>
   </main>

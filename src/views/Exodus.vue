@@ -36,8 +36,8 @@ const roll = () => { const res = journeyMove(r.value!, rollDie()); card.value = 
           <li v-for="(p, i) in r.players" :key="p.name" class="flex items-center gap-3 rounded-lg px-3 py-2 text-lg" :class="i === r.turn && r.winner === null ? 'bg-[#16294a] ring-2 ring-saffron' : ''"><span class="h-5 w-5 rounded-full border-2 border-linen" :style="{ background: colors[i] }" />{{ p.name }}: space {{ p.pos }}</li>
         </ul>
         <div class="mt-4 flex items-center gap-4"><Die :n="r.last" />
-          <button v-if="r.winner === null" class="min-h-14 rounded-full bg-saffron px-6 text-xl font-semibold text-ink" @click="roll">{{ r.players[r.turn].name }}: roll</button>
-          <button v-else class="min-h-14 rounded-full bg-saffron px-6 text-xl font-semibold text-ink" @click="r = null">Play again</button>
+          <button v-if="r.winner === null" class="btn" @click="roll">{{ r.players[r.turn].name }}: roll</button>
+          <button v-else class="btn" @click="r = null">Play again</button>
         </div>
         <div aria-live="polite" class="mt-4">
           <p v-if="r.winner !== null" class="text-2xl font-semibold text-saffron">{{ r.players[r.winner].name }} reached the promised land!</p>

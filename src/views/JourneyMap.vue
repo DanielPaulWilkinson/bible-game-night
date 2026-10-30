@@ -37,7 +37,7 @@ onMounted(() => addEventListener('keydown', onKey)); onUnmounted(() => removeEve
     <Back />
     <h1 class="flex items-center gap-3 mt-2 text-3xl font-semibold sm:text-4xl"><GameLogo id="map" class="h-14 w-14 shrink-0" />Journey Map</h1>
     <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Choose a journey">
-      <button v-for="(jj, i) in JOURNEYS" :key="jj.id" class="min-h-12 rounded-full px-5 text-base font-semibold" :class="which === i ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="which === i" @click="choose(i)">{{ jj.title }}</button>
+      <button v-for="(jj, i) in JOURNEYS" :key="jj.id" class="btn2" :class="which === i ? 'bg-saffron text-ink' : 'bg-linen text-ink'" :aria-pressed="which === i" @click="choose(i)">{{ jj.title }}</button>
     </div>
     <figure class="mt-4 overflow-hidden rounded-xl border-4 border-[#c9a76a] shadow-[0_6px_0_#0f1d33]">
       <svg :viewBox="`${vb.x} ${vb.y} ${vb.w} ${vb.h}`" class="block h-auto w-full bg-[#ead8ae]" role="img" :aria-label="`Simplified map of ${j.title}. Stop ${at + 1} of ${j.stops.length}: ${stop.name}.`">
@@ -73,8 +73,8 @@ onMounted(() => addEventListener('keydown', onKey)); onUnmounted(() => removeEve
       <p class="mt-1 text-base text-[#5a4a38]">{{ stop.ref }}</p>
     </section>
     <div class="mt-4 flex gap-3">
-      <button class="min-h-14 flex-1 rounded-full bg-linen px-5 text-lg font-semibold text-ink disabled:opacity-50" :disabled="at === 0" @click="step(-1)">Back a stop</button>
-      <button class="min-h-14 flex-1 rounded-full bg-saffron px-5 text-lg font-semibold text-ink disabled:opacity-50" :disabled="at === j.stops.length - 1" @click="step(1)">Next stop</button>
+      <button class="btn2 flex-1 disabled:opacity-50" :disabled="at === 0" @click="step(-1)">Back a stop</button>
+      <button class="btn flex-1 disabled:opacity-50" :disabled="at === j.stops.length - 1" @click="step(1)">Next stop</button>
     </div>
   </main>
 </template>

@@ -11,8 +11,10 @@ h1:focus { outline: none; }
 @media print { body { background: #fff !important; color: #000; } .no-print { display: none !important; } }
 @layer components {
   .page { @apply mt-6 border-4 border-ink bg-[#F3E6C8] p-5 text-ink sm:p-8; }
-  .btn { @apply inline-flex min-h-14 items-center justify-center rounded-full border-2 border-ink bg-saffron px-7 text-xl font-semibold text-ink; }
-  .btn2 { @apply inline-flex min-h-12 items-center justify-center rounded-full border-2 border-ink bg-linen px-6 text-lg font-semibold text-ink; }
+  .btn, .btn2, .btn3 { @apply inline-flex min-h-14 items-center justify-center gap-2 rounded-full border-2 border-ink px-6 text-center text-xl font-semibold leading-tight text-ink disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn { @apply bg-saffron shadow-[0_3px_0_#1f2a44]; }
+  .btn2 { @apply bg-linen; }
+  .btn3 { @apply border-ink/60 bg-transparent font-normal; }
   .chip { @apply inline-flex min-h-12 items-center justify-center rounded border-2 border-ink bg-linen px-4 text-xl text-ink; }
   .src { @apply mt-3 text-base italic; }
 }
@@ -23,13 +25,15 @@ h1:focus { outline: none; }
 
 /* Polish: one press response for every button, a clear focus ring, and one turn-change transition. */
 button, .btn, .btn2, a.chip { transition: transform 120ms ease-out, filter 120ms ease-out; -webkit-tap-highlight-color: transparent; }
-button:active:not(:disabled), .btn:active, .btn2:active { transform: scale(.96); filter: brightness(.94); }
+button:active:not(:disabled), .btn:active, .btn2:active, .btn3:active { transform: scale(.96); filter: brightness(.94); }
+.btn:active { box-shadow: 0 1px 0 #1f2a44; }
+.btn3:hover { background: rgb(0 0 0 / .05); }
 :focus-visible { outline: 3px solid #E3A23B; outline-offset: 3px; }
 .turn-enter-active, .turn-leave-active { transition: opacity 180ms ease, transform 180ms ease; }
 .turn-enter-from { opacity: 0; transform: translateX(16px); }
 .turn-leave-to { opacity: 0; transform: translateX(-16px); }
 @media (prefers-reduced-motion: reduce) {
-  button, .btn, .btn2 { transition: none; } button:active:not(:disabled), .btn:active, .btn2:active { transform: none; }
+  button, .btn, .btn2, .btn3 { transition: none; } button:active:not(:disabled), .btn:active, .btn2:active, .btn3:active { transform: none; }
   .turn-enter-active, .turn-leave-active { transition: opacity 1ms; } .turn-enter-from, .turn-leave-to { transform: none; }
 }
 

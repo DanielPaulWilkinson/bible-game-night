@@ -26,7 +26,7 @@ const canSpeak = typeof window !== 'undefined' && 'speechSynthesis' in window
         <p class="text-2xl leading-snug sm:text-3xl">&ldquo;{{ round.quote.text }}&rdquo;</p>
         <footer class="mt-2 text-base text-[#5a4a38]">{{ round.quote.ref }}, Berean Standard Bible</footer>
       </blockquote>
-      <button v-if="canSpeak" class="mt-3 min-h-12 rounded-full bg-[#16294a] px-5 text-base font-semibold text-linen ring-1 ring-[#3b557d]" @click="say">Read it to me</button>
+      <button v-if="canSpeak" class="btn2 mt-3" @click="say">Read it to me</button>
       <ul class="mt-4 grid grid-cols-3 gap-3" aria-label="Who said it?">
         <li v-for="id in round.choices" :key="id">
           <button class="tile block w-full overflow-hidden rounded-lg bg-linen text-ink shadow-[0_4px_0_#0f1d33] disabled:cursor-default"
@@ -40,14 +40,14 @@ const canSpeak = typeof window !== 'undefined' && 'speechSynthesis' in window
       <div class="mt-4 min-h-24" aria-live="polite">
         <template v-if="q.answered">
           <p class="text-xl font-semibold" :class="right ? 'text-saffron' : 'text-linen'">{{ right ? `Yes! ${byId(round.quote.figureId).name} said it.` : `Good try! It was ${byId(round.quote.figureId).name}.` }}</p>
-          <button class="mt-3 min-h-12 rounded-full bg-saffron px-6 text-base font-semibold text-ink" @click="q = nextRound(q)">{{ q.at + 1 < q.rounds.length ? 'Next question' : 'See how you did' }}</button>
+          <button class="btn mt-3" @click="q = nextRound(q)">{{ q.at + 1 < q.rounds.length ? 'Next question' : 'See how you did' }}</button>
         </template>
       </div>
     </template>
     <section v-else class="mt-6 text-center" aria-live="polite">
       <p class="text-3xl font-semibold text-saffron">You got {{ q.score }} out of {{ q.rounds.length }}!</p>
       <p class="mt-2 text-xl">{{ q.score >= 7 ? 'Brilliant listening!' : q.score >= 4 ? 'Well done!' : 'Good effort! Every go helps you learn.' }}</p>
-      <button class="mt-6 min-h-12 rounded-full bg-saffron px-6 text-base font-semibold text-ink" @click="q = newQuiz(figures)">Play again</button>
+      <button class="btn mt-6" @click="q = newQuiz(figures)">Play again</button>
     </section>
   </main>
 </template>

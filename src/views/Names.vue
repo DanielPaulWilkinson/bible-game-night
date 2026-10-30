@@ -16,8 +16,8 @@ const go = () => emit('start', names.value.map((n, i) => n.trim() || `${props.la
       </li>
     </ul>
     <div class="mt-4 flex flex-wrap gap-3">
-      <button v-if="names.length < (max ?? 4)" type="button" class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="add">Add {{ label.toLowerCase() }}</button>
-      <button class="min-h-12 rounded-full bg-saffron px-5 text-base font-semibold text-ink">{{ start ?? 'Start' }}</button>
+      <button v-if="names.length < (max ?? 4)" type="button" class="btn2" @click="add">Add {{ label.toLowerCase() }}</button>
+      <button class="btn">{{ start ?? 'Start' }}</button>
     </div>
   </form>
 </template>

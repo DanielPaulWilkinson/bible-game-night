@@ -29,19 +29,19 @@ const letters = ['A', 'B', 'C']
           <li v-for="(c, i) in q.choices" :key="c" class="rounded-lg px-4 py-3 text-2xl sm:text-3xl" :class="n.shown && c === q.answer ? 'bg-saffron font-semibold text-ink' : 'bg-lapis'">{{ letters[i] }}. {{ c }}<span v-if="n.shown && c === q.answer" class="sr-only"> (correct)</span></li>
         </ol>
         <p v-if="n.shown" class="mt-3 text-xl" aria-live="polite">{{ q.answer }}. Read it in {{ q.ref }}.</p>
-        <div v-if="!n.shown" class="mt-5"><button class="min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold text-ink" @click="n = showAnswer(n)">Show the answer</button></div>
+        <div v-if="!n.shown" class="mt-5"><button class="btn" @click="n = showAnswer(n)">Show the answer</button></div>
         <div v-else class="mt-5">
           <p class="text-lg">Who got it right? Tap each team.</p>
           <div class="mt-2 flex flex-wrap gap-3">
-            <button v-for="(name, i) in n.teams.names" :key="name" :aria-pressed="n.awarded.includes(i)" class="min-h-14 rounded-full px-6 text-lg font-semibold" :class="n.awarded.includes(i) ? 'bg-saffron text-ink' : 'bg-linen text-ink'" @click="n = award(n, i)">{{ n.awarded.includes(i) ? '✓ ' : '' }}{{ name }}</button>
-            <button class="min-h-14 rounded-full bg-[#16294a] px-6 text-lg font-semibold ring-2 ring-linen" @click="n = nextQuestion(n)">Next question</button>
+            <button v-for="(name, i) in n.teams.names" :key="name" :aria-pressed="n.awarded.includes(i)" class="btn2" :class="n.awarded.includes(i) ? 'bg-saffron text-ink' : 'bg-linen text-ink'" @click="n = award(n, i)">{{ n.awarded.includes(i) ? '✓ ' : '' }}{{ name }}</button>
+            <button class="btn2" @click="n = nextQuestion(n)">Next question</button>
           </div>
         </div>
       </section>
       <section v-else-if="quizNightDone(n)" class="mt-6 rounded-xl bg-[#16294a] p-8 text-center">
         <p class="text-4xl font-semibold text-saffron">{{ leaders(n.teams).join(' and ') }} {{ leaders(n.teams).length > 1 ? 'share the top spot' : 'came top' }}!</p>
         <p class="mt-2 text-xl">Thanks for playing, everyone.</p>
-        <button class="mt-4 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold text-ink" @click="n = null">New quiz night</button>
+        <button class="btn mt-4" @click="n = null">New quiz night</button>
       </section>
     </template>
   </main>

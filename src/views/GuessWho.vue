@@ -69,14 +69,14 @@ function closeInfo() { dialog.value?.close(); info.value = null }
       <section class="rounded-xl bg-[#16294a] p-5 shadow-[0_6px_0_#0f1d33]">
         <h3 class="text-xl font-semibold text-saffron">Two devices</h3>
         <p class="mt-2 text-base text-[#dfe6f0]">Each player has their own phone or tablet, and you ask questions across the table.</p>
-        <button class="mt-4 min-h-12 w-full rounded-full bg-saffron px-5 text-base font-semibold text-ink" @click="choose('two')">Play on two devices</button>
+        <button class="btn mt-4 w-full" @click="choose('two')">Play on two devices</button>
       </section>
       <section class="rounded-xl bg-[#16294a] p-5 shadow-[0_6px_0_#0f1d33]">
         <h3 class="text-xl font-semibold text-saffron">Pass the device</h3>
         <p class="mt-2 text-base text-[#dfe6f0]">Two players share one device and hand it over after each turn.</p>
         <label class="mt-3 block text-base">Player 1 name<input v-model="names[0]" maxlength="20" placeholder="Player 1" class="mt-1 block min-h-12 w-full rounded-lg bg-linen px-3 text-ink placeholder:text-[#6b5b48]" /></label>
         <label class="mt-3 block text-base">Player 2 name<input v-model="names[1]" maxlength="20" placeholder="Player 2" class="mt-1 block min-h-12 w-full rounded-lg bg-linen px-3 text-ink placeholder:text-[#6b5b48]" /></label>
-        <button class="mt-4 min-h-12 w-full rounded-full bg-saffron px-5 text-base font-semibold text-ink" @click="choose('pass')">Play on one device</button>
+        <button class="btn mt-4 w-full" @click="choose('pass')">Play on one device</button>
       </section>
     </div>
     <p class="mt-6"><a href="#/credits" class="underline underline-offset-4">Picture credits</a></p>
@@ -87,8 +87,8 @@ function closeInfo() { dialog.value?.close(); info.value = null }
     <p class="mt-3 text-xl">You found {{ byId(match.lastGuess!.id).name }}. Thank you for a lovely game, {{ match.players[match.winner === 0 ? 1 : 0].name }}!</p>
     <div class="mt-5 h-40 w-32 overflow-hidden rounded-lg border-4 border-saffron"><Portrait :f="byId(match.lastGuess!.id)" eager /></div>
     <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <button class="min-h-12 rounded-full bg-saffron px-6 text-base font-semibold text-ink" @click="choose('pass')">Play again</button>
-      <button class="min-h-12 rounded-full bg-linen px-6 text-base font-semibold text-ink" @click="backToStart">Start screen</button>
+      <button class="btn" @click="choose('pass')">Play again</button>
+      <button class="btn2" @click="backToStart">Start screen</button>
     </div>
   </main>
 
@@ -96,7 +96,7 @@ function closeInfo() { dialog.value?.close(); info.value = null }
     <p v-if="lastGuessText" class="mb-6 max-w-md text-lg text-[#dfe6f0]" aria-live="polite">{{ lastGuessText }}</p>
     <h1 class="text-4xl font-semibold sm:text-5xl">Pass to {{ nextName }}</h1>
     <p class="mt-3 text-lg text-[#dfe6f0]">No peeking! Both boards are hidden.</p>
-    <button class="mt-8 min-h-14 rounded-full bg-saffron px-8 text-lg font-semibold text-ink" @click="showBoard">I'm {{ nextName }}, show my board</button>
+    <button class="btn mt-8" @click="showBoard">I'm {{ nextName }}, show my board</button>
   </main>
 
   <main v-else class="mx-auto max-w-6xl px-3 pb-10 pt-4 font-story sm:px-6">
@@ -117,23 +117,23 @@ function closeInfo() { dialog.value?.close(); info.value = null }
           </p>
         </div>
         <div class="mt-2 flex flex-wrap gap-2">
-          <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" :aria-pressed="secretShown" @click="toggleShown">
+          <button class="btn2" :aria-pressed="secretShown" @click="toggleShown">
             {{ secretShown ? 'Hide my person' : 'Show my person' }}</button>
           <template v-if="match">
-            <button v-if="!guessing" class="min-h-12 rounded-full bg-saffron px-5 text-base font-semibold text-ink" @click="finishTurn">End turn</button>
-            <button v-if="!guessing" class="min-h-12 rounded-full bg-[#9B2C45] px-5 text-base font-semibold text-linen" @click="startGuess">Make a guess</button>
+            <button v-if="!guessing" class="btn" @click="finishTurn">End turn</button>
+            <button v-if="!guessing" class="btn2" @click="startGuess">Make a guess</button>
             <template v-else>
-              <button class="min-h-12 rounded-full bg-saffron px-5 text-base font-semibold text-ink disabled:opacity-60" :disabled="!picked" @click="confirmGuess">Is it this person?</button>
-              <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="cancelGuess">Cancel</button>
+              <button class="btn disabled:opacity-60" :disabled="!picked" @click="confirmGuess">Is it this person?</button>
+              <button class="btn2" @click="cancelGuess">Cancel</button>
             </template>
           </template>
-          <button v-else class="min-h-12 rounded-full bg-saffron px-5 text-base font-semibold text-ink" @click="start">New game</button>
-          <button class="min-h-12 rounded-full px-3 text-base text-linen underline underline-offset-4" @click="backToStart">Start screen</button>
+          <button v-else class="btn" @click="start">New game</button>
+          <button class="btn2" @click="backToStart">Start screen</button>
         </div>
       </div>
     </section>
 
-    <p v-if="guessing" class="mb-3 mt-5 text-lg font-semibold text-saffron" aria-live="polite">{{ picked ? `You picked ${byId(picked).name}. Press "Is it this person?"` : 'Tap the person you think it is.' }}</p>
+    <p v-if="guessing" class="mb-3 mt-5 text-lg font-semibold text-saffron" aria-live="polite">{{ picked ? `You picked ${byId(picked).name}. Press"Is it this person?"` : 'Tap the person you think it is.' }}</p>
     <p v-else class="mb-3 mt-5 text-base text-[#dfe6f0]" aria-live="polite">{{ up }} of {{ figures.length }} still standing. Tap a face to flip it down; hold it, or press <span aria-hidden="true">ⓘ</span><span class="sr-only">the info button</span>, to read about them.</p>
 
     <ul class="grid grid-cols-4 gap-2 sm:gap-3 md:grid-cols-6" aria-label="Board">
@@ -167,7 +167,7 @@ function closeInfo() { dialog.value?.close(); info.value = null }
           <p class="mt-1 text-sm text-[#5a4a38]">{{ info.testament === 'old' ? 'Old' : 'New' }} Testament, {{ info.gender }}<template v-if="info.roles.length">. {{ info.roles.join(', ') }}</template></p>
         </div>
       </div>
-      <div class="px-5 pb-5"><button class="min-h-12 w-full rounded-full bg-lapis text-base font-semibold text-linen" @click="closeInfo">Close</button></div>
+      <div class="px-5 pb-5"><button class="btn2 w-full" @click="closeInfo">Close</button></div>
     </dialog>
   </main>
 

@@ -50,8 +50,8 @@ function dropBack() { if (dragId && o.value!.placed.includes(dragId)) o.value = 
       <div class="mt-4 min-h-12" aria-live="polite">
         <p v-if="done && good" class="text-2xl font-semibold text-saffron">That is the right order. Well done!</p>
         <template v-else-if="done">
-          <button v-if="!checked" class="min-h-12 rounded-full bg-saffron px-6 text-base font-semibold text-ink" @click="checked = true">Check my story</button>
-          <p v-else class="text-xl">Nearly! The ones marked "Right place" are correct. Tap the others to move them.</p>
+          <button v-if="!checked" class="btn" @click="checked = true">Check my story</button>
+          <p v-else class="text-xl">Nearly! The ones marked"Right place" are correct. Tap the others to move them.</p>
         </template>
       </div>
       <template v-if="o.pool.length">
@@ -66,8 +66,8 @@ function dropBack() { if (dragId && o.value!.placed.includes(dragId)) o.value = 
         </ul>
       </template>
       <div class="mt-6 flex flex-wrap gap-3">
-        <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="o = newOrder(o.story); checked = false">Start this story again</button>
-        <button class="min-h-12 rounded-full bg-linen px-5 text-base font-semibold text-ink" @click="o = null">Pick another story</button>
+        <button class="btn2" @click="o = newOrder(o.story); checked = false">Start this story again</button>
+        <button class="btn2" @click="o = null">Pick another story</button>
       </div>
       <p class="mt-6 text-sm text-[#dfe6f0]">Illustrations by Jim Padgett, courtesy of Sweet Publishing, licensed <a href="https://creativecommons.org/licenses/by-sa/3.0/" class="underline" rel="noopener">CC BY-SA 3.0</a>. <a href="#/credits" class="underline">Credits</a></p>
     </template>

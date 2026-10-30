@@ -38,8 +38,8 @@ defineExpose({ phase, go })
     <p class="mx-auto mt-3 max-w-[40ch] text-xl">Everyone else, look away. Pass the phone face down to the player, then press start.</p>
     <slot name="ready" />
     <div class="mt-5 flex flex-col items-center gap-3">
-      <button class="min-h-14 rounded-full bg-saffron px-10 text-2xl font-semibold text-ink ring-2 ring-ink" @click="go">Start the timer</button>
-      <button v-if="!tilt" class="min-h-12 rounded-full px-5 text-lg underline underline-offset-4" @click="useTilt">Use tilt instead of buttons</button>
+      <button class="btn" @click="go">Start the timer</button>
+      <button v-if="!tilt" class="btn2" @click="useTilt">Use tilt instead of buttons</button>
       <p v-if="tiltMsg" class="text-base" role="status">{{ tiltMsg }}</p>
     </div>
   </section>
@@ -55,7 +55,7 @@ defineExpose({ phase, go })
       <button class="min-h-20 rounded-xl bg-olive text-3xl font-semibold text-linen ring-2 ring-ink" @click="emit('correct')">Correct</button>
       <button class="min-h-20 rounded-xl bg-linen text-3xl font-semibold text-ink ring-2 ring-ink" @click="emit('skip')">Skip</button>
     </div>
-    <button class="min-h-12 justify-self-center rounded-full px-5 text-base underline underline-offset-4" @click="endEarly">End turn</button>
+    <button class="btn2 justify-self-center" @click="endEarly">End turn</button>
   </section>
   <section v-else class="mt-6 rounded-xl border-4 border-ink bg-vellum p-6 text-ink" aria-labelledby="reveal-h">
     <h2 id="reveal-h" class="text-3xl font-semibold">The real story</h2>
@@ -68,7 +68,7 @@ defineExpose({ phase, go })
       </li>
     </ul>
     <slot name="reveal" />
-    <button class="mt-5 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold text-ink ring-2 ring-ink" @click="next">Next</button>
+    <button class="btn mt-5" @click="next">Next</button>
   </section>
   </Transition>
 </template>

@@ -46,9 +46,9 @@ const MOOD_NOTE: Record<Mood, string> = { move: 'Off the sofa', laugh: 'Giggles 
         <li><a href="#/blessing" class="flex min-h-16 items-center gap-3 py-2"><span class="w-6 text-2xl font-semibold text-pom">{{ lineup.length + 1 }}</span><GameLogo id="blessing" class="h-14 w-14 shrink-0" /><span><span class="block text-xl font-semibold leading-tight underline-offset-4 hover:underline">Blessing Round</span><span class="text-base">Numbers 6:24–26, together</span></span></a></li>
       </ol>
       <div class="mt-4 flex flex-wrap gap-3">
-        <a :href="`#/${lineup[0]}`" @click="startNight(lineup)" class="inline-flex min-h-14 items-center rounded-full bg-saffron px-6 text-xl font-semibold ring-2 ring-ink">Play now</a>
-        <button type="button" class="min-h-14 rounded-full bg-linen px-5 text-xl ring-2 ring-ink" @click="lineup = deal(ids, who, Math.random, lineup)">Deal tonight’s games again</button>
-        <button type="button" class="min-h-14 px-2 text-xl underline underline-offset-4" @click="surpriseMe">Surprise me</button>
+        <a :href="`#/${lineup[0]}`" @click="startNight(lineup)" class="btn">Play now</a>
+        <button type="button" class="btn2" @click="lineup = deal(ids, who, Math.random, lineup)">Deal tonight’s games again</button>
+        <button type="button" class="btn2" @click="surpriseMe">Surprise me</button>
       </div>
     </section>
 
@@ -60,7 +60,7 @@ const MOOD_NOTE: Record<Mood, string> = { move: 'Off the sofa', laugh: 'Giggles 
     </section>
 
     <div class="mt-8 flex flex-wrap items-center gap-3">
-      <button type="button" :aria-pressed="short" class="min-h-12 rounded-full border-2 px-4 text-lg" :class="short ? 'border-saffron bg-saffron font-semibold text-ink' : 'border-[#5a7299]'" @click="short = !short">10 minutes or less</button>
+      <button type="button" :aria-pressed="short" :class="short ? 'btn' : 'btn2'" @click="short = !short">10 minutes or less</button>
       <p class="text-lg" role="status" aria-live="polite">{{ count }} {{ count === 1 ? 'game' : 'games' }}<template v-if="who"> for {{ who === 'little' ? 'little ones' : 'grown-ups' }}</template></p>
     </div>
 
