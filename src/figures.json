@@ -1,0 +1,300 @@
+[
+ {
+  "id": "noah",
+  "name": "Noah",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "builder"
+  ],
+  "fact": "Built a huge ark and took the animals in, two by two.",
+  "ref": "Genesis 6:14, 7:9",
+  "image": "figures/noah.webp"
+ },
+ {
+  "id": "abraham",
+  "name": "Abraham",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "shepherd",
+   "traveller"
+  ],
+  "fact": "God promised him a family as many as the stars in the sky.",
+  "ref": "Genesis 15:5",
+  "image": "figures/abraham.webp"
+ },
+ {
+  "id": "sarah",
+  "name": "Sarah",
+  "gender": "woman",
+  "testament": "old",
+  "roles": [
+   "mother"
+  ],
+  "fact": "Laughed when God said she would have a baby in her old age.",
+  "ref": "Genesis 18:12",
+  "image": "figures/sarah.webp"
+ },
+ {
+  "id": "joseph",
+  "name": "Joseph",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "dreamer",
+   "ruler"
+  ],
+  "fact": "His father gave him a special coat, and God gave him dreams.",
+  "ref": "Genesis 37:3-5",
+  "image": "figures/joseph.webp"
+ },
+ {
+  "id": "moses",
+  "name": "Moses",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "leader",
+   "prophet"
+  ],
+  "fact": "Led God's people out of Egypt, through the Red Sea on dry ground.",
+  "ref": "Exodus 14:21-22",
+  "image": "figures/moses.webp"
+ },
+ {
+  "id": "miriam",
+  "name": "Miriam",
+  "gender": "woman",
+  "testament": "old",
+  "roles": [
+   "prophet",
+   "musician"
+  ],
+  "fact": "Played her tambourine and sang to the Lord after the Red Sea.",
+  "ref": "Exodus 15:20-21",
+  "image": null
+ },
+ {
+  "id": "deborah",
+  "name": "Deborah",
+  "gender": "woman",
+  "testament": "old",
+  "roles": [
+   "judge",
+   "prophet"
+  ],
+  "fact": "A judge who sat under a palm tree and helped Israel.",
+  "ref": "Judges 4:4-5",
+  "image": "figures/deborah.webp"
+ },
+ {
+  "id": "ruth",
+  "name": "Ruth",
+  "gender": "woman",
+  "testament": "old",
+  "roles": [
+   "gleaner"
+  ],
+  "fact": "Told Naomi, ‘Where you go, I will go.’",
+  "ref": "Ruth 1:16",
+  "image": null
+ },
+ {
+  "id": "hannah",
+  "name": "Hannah",
+  "gender": "woman",
+  "testament": "old",
+  "roles": [
+   "mother"
+  ],
+  "fact": "Prayed for a son, and God gave her Samuel.",
+  "ref": "1 Samuel 1:20",
+  "image": null
+ },
+ {
+  "id": "david",
+  "name": "David",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "shepherd",
+   "king",
+   "musician"
+  ],
+  "fact": "A shepherd boy who beat Goliath with a sling and a stone.",
+  "ref": "1 Samuel 17:49-50",
+  "image": "figures/david.webp"
+ },
+ {
+  "id": "solomon",
+  "name": "Solomon",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "king"
+  ],
+  "fact": "Asked God for wisdom and became a very wise king.",
+  "ref": "1 Kings 3:9-12",
+  "image": "figures/solomon.webp"
+ },
+ {
+  "id": "elijah",
+  "name": "Elijah",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "prophet"
+  ],
+  "fact": "Went up to heaven in a whirlwind, with a chariot of fire.",
+  "ref": "2 Kings 2:11",
+  "image": "figures/elijah.webp"
+ },
+ {
+  "id": "esther",
+  "name": "Esther",
+  "gender": "woman",
+  "testament": "old",
+  "roles": [
+   "queen"
+  ],
+  "fact": "A brave queen who went to the king to save her people.",
+  "ref": "Esther 4:16, 7:3",
+  "image": "figures/esther.webp"
+ },
+ {
+  "id": "daniel",
+  "name": "Daniel",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "prophet"
+  ],
+  "fact": "God shut the lions' mouths when Daniel was put in their den.",
+  "ref": "Daniel 6:22",
+  "image": "figures/daniel.webp"
+ },
+ {
+  "id": "jonah",
+  "name": "Jonah",
+  "gender": "man",
+  "testament": "old",
+  "roles": [
+   "prophet"
+  ],
+  "fact": "Was inside a great fish for three days and three nights.",
+  "ref": "Jonah 1:17",
+  "image": "figures/jonah.webp"
+ },
+ {
+  "id": "mary",
+  "name": "Mary",
+  "gender": "woman",
+  "testament": "new",
+  "roles": [
+   "mother"
+  ],
+  "fact": "The angel Gabriel told her she would be the mother of Jesus.",
+  "ref": "Luke 1:30-31",
+  "image": "figures/mary.webp"
+ },
+ {
+  "id": "john-baptist",
+  "name": "John the Baptist",
+  "gender": "man",
+  "testament": "new",
+  "roles": [
+   "prophet"
+  ],
+  "fact": "Lived in the desert, ate locusts and wild honey, and baptised people.",
+  "ref": "Matthew 3:4-6",
+  "image": "figures/john-baptist.webp"
+ },
+ {
+  "id": "peter",
+  "name": "Peter",
+  "gender": "man",
+  "testament": "new",
+  "roles": [
+   "apostle",
+   "fisherman"
+  ],
+  "fact": "A fisherman who stepped out of the boat and walked on the water.",
+  "ref": "Matthew 14:29",
+  "image": "figures/peter.webp"
+ },
+ {
+  "id": "matthew",
+  "name": "Matthew",
+  "gender": "man",
+  "testament": "new",
+  "roles": [
+   "apostle",
+   "tax collector"
+  ],
+  "fact": "A tax collector who got up from his table to follow Jesus.",
+  "ref": "Matthew 9:9",
+  "image": "figures/matthew.webp"
+ },
+ {
+  "id": "zacchaeus",
+  "name": "Zacchaeus",
+  "gender": "man",
+  "testament": "new",
+  "roles": [
+   "tax collector"
+  ],
+  "fact": "A short man who climbed a tree to see Jesus.",
+  "ref": "Luke 19:3-4",
+  "image": "figures/zacchaeus.webp"
+ },
+ {
+  "id": "martha",
+  "name": "Martha",
+  "gender": "woman",
+  "testament": "new",
+  "roles": [
+   "host"
+  ],
+  "fact": "Welcomed Jesus into her home and was busy serving.",
+  "ref": "Luke 10:38-40",
+  "image": "figures/martha.webp"
+ },
+ {
+  "id": "mary-magdalene",
+  "name": "Mary Magdalene",
+  "gender": "woman",
+  "testament": "new",
+  "roles": [
+   "follower"
+  ],
+  "fact": "The first person to see Jesus after He rose again.",
+  "ref": "Mark 16:9",
+  "image": "figures/mary-magdalene.webp"
+ },
+ {
+  "id": "paul",
+  "name": "Paul",
+  "gender": "man",
+  "testament": "new",
+  "roles": [
+   "apostle",
+   "traveller"
+  ],
+  "fact": "Was shipwrecked on his travels telling people about Jesus.",
+  "ref": "Acts 27:41-44",
+  "image": "figures/paul.webp"
+ },
+ {
+  "id": "thomas",
+  "name": "Thomas",
+  "gender": "man",
+  "testament": "new",
+  "roles": [
+   "apostle"
+  ],
+  "fact": "Saw the risen Jesus and said, ‘My Lord and my God!’",
+  "ref": "John 20:28",
+  "image": "figures/thomas.webp"
+ }
+]
