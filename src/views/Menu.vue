@@ -65,7 +65,8 @@ const MOOD_NOTE: Record<Mood, string> = { move: 'Off the sofa', laugh: 'Giggles 
     </div>
 
     <section v-for="r in rows" :key="r.m" class="mt-8" :aria-labelledby="`row-${r.m}`">
-      <h2 :id="`row-${r.m}`" class="text-3xl font-semibold">{{ r.title }}<span class="block text-lg font-normal text-[#dfe6f0]">{{ MOOD_NOTE[r.m] }}</span></h2>
+      <h2 :id="`row-${r.m}`" class="text-3xl font-semibold">{{ r.title }}</h2>
+      <p :id="`row-${r.m}-note`" class="mt-1 text-lg text-[#dfe6f0]">{{ MOOD_NOTE[r.m] }}</p>
       <p v-if="!r.all.length" class="mt-3 rounded-xl border-2 border-dashed border-[#5a7299] p-4 text-lg">No game fits all of those here. <button type="button" class="min-h-12 underline underline-offset-4" @click="short = false; who = null">Show every game</button></p>
       <ul class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <li v-for="id in r.shown" :key="id">

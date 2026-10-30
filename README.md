@@ -1,43 +1,61 @@
-# Bible Games
+# Bible Game Night
 
-Six small games for young children (about 3 to 7) using 24 people from the Bible. Static site, no server, hash routing (`#/guess`, `#/pairs`, `#/quotes`, `#/order`, `#/bingo`, `#/map`, `#/credits`).
+Bible stories to play on one screen with the people on your sofa. 35 family games, a dealt game night that ends in a blessing, and Bible verses quoted from the Berean Standard Bible. No accounts, no tracking, no server: it's a static site that also works offline once it has loaded.
 
-- **Guess Who**: the original game, on two devices or passing one device.
-- **Pairs**: match a person to a thing from their story (6 or 10 pairs). Object pictures are hand-drawn SVG.
-- **Who said or wrote it?**: 10 rounds of short Berean Standard Bible (public domain) quotes, 3 picture choices. Every quote is checked word for word against `tests/bsb-fixture.txt`, which is itself checked against the full BSB in `../bible-companion` when present.
-- **Story Order**: tap (or drag) Sweet Publishing scenes of Noah, Jonah and Joseph into order.
-- **Bible Bingo**: 4x4 card on screen or printed (4 cards), plus a caller screen.
-- **Journey Map**: simplified SVG map of Abraham (Ur to Canaan) and Paul's first journey, stop by stop with references.
+Live: https://danielpaulwilkinson.github.io/bible-game-night/
 
-Game logic lives in `src/games.ts` and `src/game.ts`, tested in `tests/`. Scene pictures come from `tools/sweet_scenes.py`.
+## How a night works
 
+- **Who's playing?** Pick "Little ones with us" (big pictures, few words) or "Grown-ups and friends" (more reading, more bluffing). The menu keeps only the games that suit them and remembers your choice.
+- **Play now** deals tonight's three short games: one to get moving, one to laugh and one calm one. The Blessing Round always comes last. "Deal tonight's games again" gives you a fresh set and never repeats a game.
+- **The next-game flow.** When a game in tonight's lineup finishes, an in-between screen shows the result (and the family scores in the scored Game Night) along with the night's road: every stop, with a star at the current one. "Next game" is the big button at the bottom. You can also choose "Play this again", "Skip to …" or "End game night". Then comes a "Hand the phone to the next host" screen. The last game leads to the Blessing Round (Numbers 6:24–26, said together, never scored), and then "Night complete". The lineup is kept in session storage, so it survives moving between pages.
+- **Game Night** (`#/gamenight`) is the scored version: three rounds in about 15 minutes, with the last round worth double, ending with the Blessing. Old `#/scores` links redirect there. Unknown links show "That page isn't here" with a way back to all games.
 
-Guess Who with 24 people from the Bible, for two devices in the same room. Questions are asked out loud.
+Prayer and worship are never scored, and there are no points or streaks for Bible knowledge.
 
-- Tap a face to flip it down; tap again to bring it back. Hold a card, or press its "i", to read a one-line fact with its Bible reference.
-- Your secret person is pinned at the top and hidden until you press "Show my person".
-- No accounts, no server, no tracking. Two modes: "Two devices" (one board each) or "Pass the device" (two players share one device).
-- Pictures: illustrations by Jim Padgett, courtesy of Sweet Publishing, licensed CC BY-SA 3.0, cropped for this game; the crops are shared under CC BY-SA 3.0. See the in-app credits page. `tools/sweet_crop.py` rebuilds them from `tools/picks.json`.
+## The games, by mood
 
-```
+- **Get up and move:** Walls of Jericho, Simon Peter Says, Act It Out, Freeze, Lot's Wife!, Noah's Animal Noises, Freeze Frame, Feed the 5,000, Hide the Lost Sheep, Bible Charades
+- **Make us laugh:** Forbidden Words, Bible Balderdash, Real or Made Up?, Sketch It, Draw It, Bible Alphabet, Guess Who, Quiz Night, Bible Top Trumps, Who Am I? Clue by Clue, Pilgrim's Way, Out of Egypt, Bible Bingo, Who said or wrote it?
+- **Think together:** Fill the Verse, The Big Story Timeline, Verse Builder, Where in the World?, Journey Map, Story Order, Pairs, Church History Passport, Ark Rescue
+- **Quiet and worship:** Thankful Together, Finish the Line, Catechism Drill, plus the Blessing Round
+
+Each game has a hash route (for example `#/guess`, `#/jericho`, `#/blessing`) and shows age, time and "From the Book of" badges.
+
+## Stack
+
+Vue 3 + TypeScript, Vite, Tailwind CSS and Vitest (jsdom). Hash routing with `base: './'`, so it runs from any folder, including GitHub Pages. It installs as an app (`public/manifest.webmanifest`, icons in `public/icons/`). A small service worker (`sw-plugin.ts` writes `dist/sw.js` at build time) precaches every built file under a versioned cache name. Each deploy gets a new version, pages are fetched network-first, and old caches are deleted, so updates show on the next load.
+
+## Run, test and build
+
+```sh
 npm install
-npm test
-npm run build && npm run preview
+npm run dev        # local dev server
+npm test           # full Vitest suite
+npx vue-tsc --noEmit   # type check
+npm run build      # type check + production build into dist/
+npm run preview    # serve dist/ locally
 ```
-Design notes: DESIGN.md. Picture sources: src/credits.json (fetched by tools/fetch.py).
 
-## More games (one screen, no accounts, no network)
+## Deploy (GitHub Pages)
 
-Play together:
-- **Bible Charades** (`#/charades`): picture + one word, 60-second timer, Got it / Pass, team scores.
-- **Real or Made Up?** (`#/real`): 5 real facts and 5 silly fakes; reveal shows the real answer and reference.
-- **Draw It** (`#/draw`): tap to reveal the secret word, touch/mouse canvas, colours, undo, clear, 90-second timer.
-- **Quiz Night** (`#/quiz`): 2 to 4 teams, 3 rounds of 5, big scoreboard for a TV.
+Master holds the source. The `gh-pages` branch holds only the built site.
 
-Board games:
-- **Pilgrim's Way** (`#/snakes`): snakes and ladders on an old map of Christian's road in John Bunyan's The Pilgrim's Progress (1678, public domain). Helps carry you up and dangers send you back, each with a short story caption and a BSB verse. Counters are story items: burden, scroll, key of Promise, shield and staff. The fourteen place pictures are AI-generated pen-and-wash illustrations (public/places).
-- **Out of Egypt** (`#/exodus`): 30-space route from Egypt to the Jordan with 10 story cards.
-- **Ark Rescue** (`#/ark`): cooperative; load 8 pairs before the rain meter reaches 6.
-- **Bible Top Trumps** (`#/trumps`): 24 cards with Faith, Courage, Kindness, Wisdom; versus computer or pass-and-play.
+```sh
+npm test && npm run build
+touch dist/.nojekyll
+cd dist && git init -q -b gh-pages && git add -A && git commit -qm "Deploy <master hash>"
+git push -f <origin url> gh-pages
+gh api -X POST repos/DanielPaulWilkinson/bible-game-night/pages/builds
+gh api repos/DanielPaulWilkinson/bible-game-night/pages/builds/latest --jq '.status'   # wait for "built"
+```
 
-Every fact, quiz answer, board verse and story card carries a BSB verse and a phrase that the tests check appears in it (`tests/games2.test.ts`). Screenshots: `node tools/games2-shots.mjs` (writes `preview/games2/`).
+Never force-push master.
+
+## Scripture
+
+Every verse is quoted from the **Berean Standard Bible (BSB)**, which is public domain. Quotes are checked word for word against `tests/bsb-fixture.txt`, and every fact, quiz answer, board verse and story card carries a BSB reference with a phrase the tests check (`tests/games2.test.ts`). No modern worship lyrics are used.
+
+## Credits
+
+Pictures: illustrations by Jim Padgett, courtesy of **Sweet Publishing**, licensed CC BY-SA 3.0 and cropped for this game; the crops are shared under CC BY-SA 3.0 (see the in-app Credits page, `#/credits`). `tools/sweet_crop.py` rebuilds them from `tools/picks.json`. Pilgrim's Way follows John Bunyan's *The Pilgrim's Progress* (1678, public domain); its place pictures are AI-generated pen-and-wash illustrations (`public/places`).

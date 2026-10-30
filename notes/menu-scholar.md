@@ -1,0 +1,3 @@
+Scholar (Oct 30)
+Balderdash fixes: lepton -> "Widow's copper coins" (Mark 12:42, BSB "two small copper coins"); euraquilo -> "The Northeaster" (Acts 27:14); parapet -> "Roof railing" (Deut 22:8) or drop; bdellium keep, ref Gen 2:12 (not Num 11:7). Rule: reveal quotes BSB exactly; Greek/Hebrew words tagged as such.
+Menu ideas: 1 Verse of the Night (read at start + Blessing Round, no quiz); 2 "From the Book of" badge per tile (TOP PICK); 3 story-first picker (Noah/Jonah/David -> 2-3 games); 4 Big Story timeline strip; 5 optional "Tell it back" narration after game; 6 "Remember last time?" card. Avoid points/streaks for Bible knowledge, required quizzes, long text.
