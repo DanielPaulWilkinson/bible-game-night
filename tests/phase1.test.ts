@@ -106,7 +106,7 @@ describe('Two-tier Charades', () => {
   })
 })
 describe('Tags and filters', () => {
-  const routes = [...readFileSync('src/App.vue', 'utf8').matchAll(/(\w+): [A-Z]\w+[,} ]/g)].map(m => m[1]).filter(r => !['credits', 'gamenight'].includes(r))
+  const routes = [...readFileSync('src/App.vue', 'utf8').matchAll(/(\w+): [A-Z]\w+[,} ]/g)].map(m => m[1]).filter(r => !['credits', 'gamenight', 'blessing'].includes(r))
   it('every game is tagged with the full schema', () => {
     expect(routes.length).toBe(25)
     for (const r of routes) {

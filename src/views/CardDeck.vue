@@ -66,10 +66,11 @@ const closing = THANKS_VERSES[0]
     <Transition v-else name="turn" mode="out-in">
       <section :key="at" class="mt-6 rounded-xl border-4 border-ink bg-vellum p-6 text-center text-ink" aria-live="polite">
         <p class="text-lg">Card {{ at + 1 }} of {{ cards.length }}</p>
-        <p class="mx-auto mt-3 max-w-[30ch] font-semibold leading-tight" :class="card.front.length > 90 ? 'text-2xl' : 'text-4xl'">{{ card.front }}</p>
+        <p class="mx-auto mt-3 max-w-[30ch] font-semibold leading-tight" :class="card.front.length > 90 ? 'text-2xl' : 'text-4xl'">{{ shown && game === 'fill' ? card.back : card.front }}</p>
         <blockquote v-if="card.read" class="mx-auto mt-5 max-w-[40ch] border-l-4 border-saffron pl-4 text-left text-xl leading-snug">{{ card.read }}<footer class="mt-1 text-base italic">{{ card.source }}</footer></blockquote>
         <p v-if="count !== null && !shown" class="mt-5 text-8xl font-semibold tabular-nums text-pom" role="timer">{{ count }}</p>
-        <div v-if="shown && card.back" class="mx-auto mt-5 max-w-[40ch] rounded-lg bg-linen p-4 text-xl leading-snug">
+        <p v-if="shown && game === 'fill'" class="mt-3 text-lg italic">{{ card.source }}</p>
+        <div v-else-if="shown && card.back" class="mx-auto mt-5 max-w-[40ch] rounded-lg bg-linen p-4 text-xl leading-snug">
           <p v-if="game === 'framefreeze'" class="mb-2 text-3xl font-semibold text-pom">Freeze!</p>
           <p>{{ card.back }}</p><p v-if="card.source" class="mt-1 text-base italic">{{ card.source }}</p>
         </div>
