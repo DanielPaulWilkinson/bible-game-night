@@ -31,6 +31,7 @@ onUnmounted(() => removeEventListener('deviceorientation', onOrient))
 defineExpose({ phase, go })
 </script>
 <template>
+  <Transition name="turn" mode="out-in">
   <section v-if="phase === 'ready'" class="mt-6 rounded-xl border-4 border-ink bg-vellum p-6 text-center text-ink" aria-labelledby="turn-who">
     <p id="turn-who" class="text-4xl font-semibold">{{ who }}’s turn</p>
     <p v-if="(mult ?? 1) > 1" class="mt-2 text-2xl font-semibold text-pom">Double points!</p>
@@ -69,4 +70,5 @@ defineExpose({ phase, go })
     <slot name="reveal" />
     <button class="mt-5 min-h-14 rounded-full bg-saffron px-8 text-xl font-semibold text-ink ring-2 ring-ink" @click="next">Next</button>
   </section>
+  </Transition>
 </template>

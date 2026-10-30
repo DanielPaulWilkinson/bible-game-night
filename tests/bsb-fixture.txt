@@ -1,3 +1,4 @@
+1CO 13:4	Love is patient, love is kind. It does not envy, it does not boast, it is not proud.
 1JN 2:15	Do not love the world or anything in the world. If anyone loves the world, the love of the Father is not in him.
 1JN 4:19	We love because He first loved us.
 1KI 17:6	The ravens would bring him bread and meat in the morning and evening, and he would drink from the brook.
@@ -10,6 +11,7 @@
 1SA 1:27	I prayed for this boy, and since the LORD has granted me what I asked of Him,
 1SA 4:21	And she named the boy Ichabod, saying, “The glory has departed from Israel,” because the ark of God had been captured and her father-in-law and her husband had been killed.
 1SA 7:12	Afterward, Samuel took a stone and set it up between Mizpah and Shen. He named it Ebenezer, saying, “Thus far the LORD has helped us.”
+1TH 5:18	Give thanks in every circumstance, for this is God’s will for you in Christ Jesus.
 1TH 5:6	So then, let us not sleep as the others do, but let us remain awake and sober.
 2KI 6:6	“Where did it fall?” asked the man of God. And when he showed him the place, the man of God cut a stick, threw it there, and made the iron float.
 2SA 9:13	So Mephibosheth lived in Jerusalem, because he always ate at the king’s table, and he was lame in both feet.
@@ -38,14 +40,18 @@ EXO 15:21	And Miriam sang back to them: “Sing to the LORD, for He is highly ex
 EXO 15:25	And Moses cried out to the LORD, and the LORD showed him a log. And when he cast it into the waters, they were sweetened. There the LORD made for them a statute and an ordinance, and there He tested them,
 EXO 15:27	Then they came to Elim, where there were twelve springs of water and seventy palm trees, and they camped there by the waters.
 EXO 16:15	When the Israelites saw it, they asked one another, “What is it?” For they did not know what it was. So Moses told them, “It is the bread that the LORD has given you to eat.
+EXO 16:31	Now the house of Israel called the bread manna. It was white like coriander seed and tasted like wafers made with honey.
 EXO 17:6	Behold, I will stand there before you by the rock at Horeb. And when you strike the rock, water will come out of it for the people to drink.” So Moses did this in the sight of the elders of Israel.
 EXO 19:20	The LORD descended to the top of Mount Sinai and called Moses to the summit. So Moses went up,
 EXO 26:1	“You are to construct the tabernacle itself with ten curtains of finely spun linen, each with blue, purple, and scarlet yarn, and cherubim skillfully worked into them.
 EXO 28:30	And place the Urim and Thummim in the breastpiece of judgment, so that they will also be over Aaron’s heart whenever he comes before the LORD. Aaron will continually carry the judgment of the sons of Israel over his heart before the LORD.
 EXO 28:6	They are to make the ephod of finely spun linen embroidered with gold, and with blue, purple, and scarlet yarn.
 EXO 2:3	But when she could no longer hide him, she got him a papyrus basket and coated it with tar and pitch. Then she placed the child in the basket and set it among the reeds along the bank of the Nile.
+EXO 3:2	There the angel of the LORD appeared to him in a blazing fire from within a bush. Moses saw the bush ablaze with fire, but it was not consumed.
 EXO 4:3	“Throw it on the ground,” said the LORD. So Moses threw it on the ground, and it became a snake, and he ran from it.
 EXO 5:1	After that, Moses and Aaron went to Pharaoh and said, “This is what the LORD, the God of Israel, says: ‘Let My people go, so that they may hold a feast to Me in the wilderness.’”
+GEN 11:4	“Come,” they said, “let us build for ourselves a city with a tower that reaches to the heavens, that we may make a name for ourselves and not be scattered over the face of all the earth.”
+GEN 11:9	That is why it is called Babel, for there the LORD confused the language of the whole world, and from that place the LORD scattered them over the face of all the earth.
 GEN 12:4	So Abram departed, as the LORD had directed him, and Lot went with him. Abram was seventy-five years old when he left Haran.
 GEN 14:3	The latter five came as allies to the Valley of Siddim (that is, the Salt Sea).
 GEN 19:26	But Lot’s wife looked back, and she became a pillar of salt.
@@ -54,6 +60,7 @@ GEN 21:33	And Abraham planted a tamarisk tree in Beersheba, and there he called 
 GEN 21:6	Then Sarah said, “God has made me laugh, and everyone who hears of this will laugh with me.”
 GEN 23:15	“Listen to me, my lord. The land is worth four hundred shekels of silver, but what is that between you and me? Bury your dead.”
 GEN 28:12	And Jacob had a dream about a ladder that rested on the earth with its top reaching up to heaven, and God’s angels were going up and down the ladder.
+GEN 2:12	And the gold of that land is pure, and bdellium and onyx are found there.
 GEN 2:2	And by the seventh day God had finished the work He had been doing; so on that day He rested from all His work.
 GEN 30:14	Now during the wheat harvest, Reuben went out and found some mandrakes in the field. When he brought them to his mother, Rachel begged Leah, “Please give me some of your son’s mandrakes.”
 GEN 32:30	So Jacob named the place Peniel, saying, “Indeed, I have seen God face to face, and yet my life was spared.”
@@ -67,16 +74,22 @@ GEN 7:9	came to Noah to enter the ark, two by two, male and female, as God had c
 GEN 8:11	And behold, the dove returned to him in the evening with a freshly plucked olive leaf in her beak. So Noah knew that the waters had receded from the earth.
 GEN 9:13	I have set My rainbow in the clouds, and it will be a sign of the covenant between Me and the earth.
 HEB 13:5	Keep your lives free from the love of money and be content with what you have, for God has said: “Never will I leave you, never will I forsake you.”
+ISA 40:31	But those who wait upon the LORD will renew their strength; they will mount up with wings like eagles; they will run and not grow weary, they will walk and not faint.
 ISA 8:1	Then the LORD said to me, “Take a large scroll and write on it with an ordinary stylus: Maher-shalal-hash-baz.
 JDG 12:6	they told him, “Please say Shibboleth.” If he said, “Sibboleth,” because he could not pronounce it correctly, they seized him and killed him at the fords of the Jordan. So at that time 42,000 Ephraimites were killed.
+JDG 16:17	Samson told her all that was in his heart: “My hair has never been cut, because I have been a Nazirite to God from my mother’s womb. If I am shaved, my strength will leave me, and I will become as weak as any other man.”
 JDG 4:14	Then Deborah said to Barak, “Arise, for this is the day that the LORD has delivered Sisera into your hand. Has not the LORD gone before you?” So Barak came down from Mount Tabor with ten thousand men following him.
 JDG 7:20	The three companies blew their horns and shattered their jars. Holding the torches in their left hands and the horns in their right hands, they shouted, “A sword for the LORD and for Gideon!”
 JHN 11:21	Martha said to Jesus, “Lord, if You had been here, my brother would not have died.
+JHN 11:35	Jesus wept.
 JHN 1:29	The next day John saw Jesus coming toward him and said, “Look, the Lamb of God, who takes away the sin of the world!
 JHN 1:42	Andrew brought him to Jesus, who looked at him and said, “You are Simon son of John. You will be called Cephas” (which is translated as Peter).
 JHN 20:28	Thomas replied, “My Lord and my God!”
 JHN 2:9	and the master of the banquet tasted the water that had been turned into wine. He did not know where it was from, but the servants who had drawn the water knew. Then he called the bridegroom aside
 JHN 3:16	For God so loved the world that He gave His one and only Son, that everyone who believes in Him shall not perish but have eternal life.
+JHN 4:6	Since Jacob’s well was there, Jesus, weary from His journey, sat down by the well. It was about the sixth hour.
+JHN 6:9	“Here is a boy with five barley loaves and two small fish. But what difference will these make among so many?”
+JHN 8:12	Once again, Jesus spoke to the people and said, “I am the light of the world. Whoever follows Me will never walk in the darkness, but will have the light of life.”
 JOB 40:15	Look at Behemoth, which I made along with you. He feeds on grass like an ox.
 JOB 41:1	“Can you pull in Leviathan with a hook or tie down his tongue with a rope?
 JON 1:17	Now the LORD had appointed a great fish to swallow Jonah, and Jonah spent three days and three nights in the belly of the fish.
@@ -84,9 +97,11 @@ JON 1:3	Jonah, however, got up to flee to Tarshish, away from the presence of th
 JON 1:7	“Come!” said the sailors to one another. “Let us cast lots to find out who is responsible for this calamity that is upon us.” So they cast lots, and the lot fell on Jonah.
 JON 2:2	saying: “In my distress I called to the LORD, and He answered me. From the belly of Sheol I called for help, and You heard my voice.
 JON 3:5	And the Ninevites believed God. They proclaimed a fast and dressed in sackcloth, from the greatest of them to the least.
+JOS 1:9	Have I not commanded you to be strong and courageous? Do not be afraid; do not be discouraged, for the LORD your God is with you wherever you go.”
 JOS 3:17	The priests carrying the ark of the covenant of the LORD stood firm on dry ground in the middle of the Jordan, while all Israel crossed over the dry ground, until the entire nation had crossed the Jordan.
 JOS 6:15	Then on the seventh day, they got up at dawn and marched around the city seven times in the same manner. That was the only day they circled the city seven times.
 JOS 6:20	So when the rams’ horns sounded, the people shouted. When they heard the blast of the horn, the people gave a great shout, and the wall collapsed. Then all the people charged straight into the city and captured it.
+LUK 10:33	But a Samaritan on a journey came upon him, and when he saw him, he had compassion.
 LUK 10:34	He went to him and bandaged his wounds, pouring on oil and wine. Then he put him on his own animal, brought him to an inn, and took care of him.
 LUK 15:20	So he got up and went to his father. But while he was still in the distance, his father saw him and was filled with compassion. He ran to his son, embraced him, and kissed him.
 LUK 15:6	comes home, and calls together his friends and neighbors to tell them, ‘Rejoice with me, for I have found my lost sheep!’
@@ -105,10 +120,15 @@ MAT 14:17	“We have here only five loaves of bread and two fish,” they answer
 MAT 14:20	They all ate and were satisfied, and the disciples picked up twelve basketfuls of broken pieces that were left over.
 MAT 14:29	“Come,” said Jesus. Then Peter got down out of the boat, walked on the water, and came toward Jesus.
 MAT 16:16	Simon Peter answered, “You are the Christ, the Son of the living God.”
+MAT 19:24	Again I tell you, it is easier for a camel to pass through the eye of a needle than for a rich man to enter the kingdom of God.”
 MAT 20:2	He agreed to pay them a denarius for the day and sent them into his vineyard.
+MAT 21:7	They brought the donkey and the colt and laid their cloaks on them, and Jesus sat on them.
 MAT 23:5	All their deeds are done for men to see. They broaden their phylacteries and lengthen their tassels.
 MAT 25:15	To one he gave five talents, to another two talents, and to another one talent—each according to his own ability. And he went on his journey.
+MAT 28:20	and teaching them to obey all that I have commanded you. And surely I am with you always, even to the end of the age.”
+MAT 2:10	When they saw the star, they rejoiced with great delight.
 MAT 4:18	As Jesus was walking beside the Sea of Galilee, He saw two brothers, Simon called Peter and his brother Andrew. They were casting a net into the sea, for they were fishermen.
+MAT 5:9	Blessed are the peacemakers, for they will be called sons of God.
 MAT 7:24	Therefore everyone who hears these words of Mine and acts on them is like a wise man who built his house on the rock.
 MAT 7:7	Ask, and it will be given to you; seek, and you will find; knock, and the door will be opened to you.
 MAT 8:5	When Jesus had entered Capernaum, a centurion came and pleaded with Him,
@@ -128,15 +148,25 @@ NUM 6:24	‘May the LORD bless you and keep you;
 NUM 6:25	may the LORD cause His face to shine upon you and be gracious to you;
 NUM 6:26	may the LORD lift up His countenance toward you and give you peace.’
 PHP 4:13	I can do all things through Christ who gives me strength.
+PHP 4:4	Rejoice in the Lord always. I will say it again: Rejoice!
+PHP 4:6	Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God.
 PRO 3:5	Trust in the LORD with all your heart, and lean not on your own understanding;
 PRO 6:10	A little sleep, a little slumber, a little folding of the hands to rest,
+PSA 100:1	Make a joyful noise to the LORD, all the earth.
+PSA 118:24	This is the day that the LORD has made; we will rejoice and be glad in it.
 PSA 119:105	Your word is a lamp to my feet and a light to my path.
+PSA 121:1	I lift up my eyes to the hills. From where does my help come?
+PSA 136:1	Give thanks to the LORD, for He is good. His loving devotion endures forever.
+PSA 150:6	Let everything that has breath praise the LORD! Hallelujah!
 PSA 23:1	The LORD is my shepherd; I shall not want.
+PSA 34:8	Taste and see that the LORD is good; blessed is the man who takes refuge in Him!
 PSA 3:2	Many say of me, “God will not deliver him.” Selah
 PSA 40:2	He lifted me up from the pit of despair, out of the miry clay; He set my feet upon a rock, and made my footsteps firm.
 PSA 42:5	Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him for the salvation of His presence.
+PSA 46:1	God is our refuge and strength, an ever-present help in times of trouble.
 PSA 56:3	When I am afraid, I put my trust in You.
 PSA 69:2	I have sunk into the miry depths, where there is no footing; I have drifted into deep waters, where the flood engulfs me.
+PSA 95:1	Come, let us sing for joy to the LORD; let us shout to the Rock of our salvation!
 REV 21:5	And the One seated on the throne said, “Behold, I make all things new.” Then He said, “Write this down, for these words are faithful and true.”
 RUT 1:16	But Ruth replied: “Do not urge me to leave you or to turn from following you. For wherever you go, I will go, and wherever you live, I will live; your people will be my people, and your God will be my God.
 RUT 2:3	So Ruth departed and went out into the field and gleaned after the harvesters. And she happened to come to the part of the field belonging to Boaz, who was from the clan of Elimelech.

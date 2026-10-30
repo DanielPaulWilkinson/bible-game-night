@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import Celebrate from './Celebrate.vue'
+import { finish } from '../phase24'
 import { GAME_NIGHT, BLESSING, newNight, addPoints, nextRound, nightOver, totalMinutes, type Night } from '../gamenight'
 import { deck, kidChoices, type Option } from '../balderdash'
 import { useTimer } from '../timer'
@@ -12,6 +14,7 @@ const round = computed(() => night.value && GAME_NIGHT[night.value.at])
 const { t, start } = useTimer(300)
 const begin = (n: string[]) => { night.value = newNight(n); start(round.value!.minutes * 60) }
 const points = (who: number, n: number) => (night.value = addPoints(night.value!, who, n))
+const celebrated = ref(false)
 const advance = () => { night.value = nextRound(night.value!); if (!nightOver(night.value)) start(round.value!.minutes * 60) }
 // Which one is real?
 const words = deck('K'); const wi = ref(0), picked = ref<number | null>(null), turn = ref(0)
@@ -46,6 +49,8 @@ const mm = computed(() => `${Math.floor(t.value.left / 60)}:${String(t.value.lef
       </section>
       <button class="mt-6 min-h-14 rounded-full px-6 text-xl font-semibold ring-2 ring-linen" :class="t.running ? '' : 'bg-saffron text-ink'" @click="advance">{{ night.at === 2 ? 'Finish and bless' : 'Next round' }}</button>
     </template>
+    <template v-else>
+    <Celebrate v-if="!celebrated" :result="finish(night.names, night.scores, night.names.length > 1 ? 'compete' : 'coop')" :scores="night.names.map((name, i) => ({ name, score: night!.scores[i] }))" again-label="Go on to the blessing" @again="celebrated = true" />
     <section v-else class="mt-6 rounded-xl border-4 border-ink bg-vellum p-8 text-center text-ink" aria-labelledby="bless">
       <h2 id="bless" class="text-4xl font-semibold">The blessing</h2>
       <p class="mt-2 text-lg">Say it over each other.</p>
@@ -54,5 +59,6 @@ const mm = computed(() => `${Math.floor(t.value.left / 60)}:${String(t.value.lef
       <p class="mt-6 text-xl">{{ night.names.map((n, i) => `${n} ${night!.scores[i]}`).join(', ') }}</p>
       <a href="#/" class="mt-6 inline-flex min-h-14 items-center rounded-full bg-saffron px-8 text-xl font-semibold ring-2 ring-ink">Back to all games</a>
     </section>
+    </template>
   </Shell>
 </template>

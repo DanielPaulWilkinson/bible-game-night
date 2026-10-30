@@ -28,9 +28,19 @@ import WhoAmI from './views/WhoAmI.vue'
 import Passport from './views/Passport.vue'
 import Balderdash from './views/Balderdash.vue'
 import GameNight from './views/GameNight.vue'
+import { h } from 'vue'
+import TimedDeck from './views/TimedDeck.vue'
+import CardDeck from './views/CardDeck.vue'
+const timed = (game: string) => () => h(TimedDeck, { game } as never)
+const cardg = (game: string) => () => h(CardDeck, { game } as never)
+const P24: Record<string, [unknown, string]> = {
+  taboo: [timed('taboo'), 'Forbidden Words'], sketch: [timed('sketch'), 'Sketch It'], alphabet: [timed('alphabet'), 'Bible Alphabet'], fill: [cardg('fill'), 'Fill the Verse'],
+  act: [cardg('act'), 'Act It Out'], framefreeze: [cardg('framefreeze'), 'Freeze Frame'], simon: [cardg('simon'), 'Simon Peter Says'],
+  catechism: [cardg('catechism'), 'Catechism Drill'], finish: [cardg('finish'), 'Finish the Line'], thanks: [cardg('thanks'), 'Thankful Together'],
+}
 
-const routes: Record<string, unknown> = { guess: GuessWho, pairs: Pairs, quotes: Quotes, order: StoryOrder, bingo: Bingo, map: JourneyMap, charades: Charades, real: RealOrFake, draw: DrawIt, quiz: QuizNight, snakes: Snakes, exodus: Exodus, ark: ArkRescue, trumps: TopTrumps, jericho: Jericho, freeze: Freeze, feed: Feed, noah: Noah, sheep: Sheep, timeline: Timeline, verse: Verse, world: WorldMap, whoami: WhoAmI, passport: Passport, balderdash: Balderdash, gamenight: GameNight, credits: Credits }
-const titles: Record<string, string> = { guess: 'Guess Who', pairs: 'Pairs', quotes: 'Who said or wrote it?', order: 'Story Order', bingo: 'Bible Bingo', map: 'Journey Map', charades: 'Bible Charades', real: 'Real or Made Up?', draw: 'Draw It', quiz: 'Quiz Night', snakes: 'Pilgrim’s Way', exodus: 'Out of Egypt', ark: 'Ark Rescue', trumps: 'Bible Top Trumps', jericho: 'Walls of Jericho', freeze: 'Freeze, Lot’s Wife!', feed: 'Feed the 5,000', noah: 'Noah’s Animal Noises', sheep: 'Hide the Lost Sheep', timeline: 'The Big Story Timeline', verse: 'Verse Builder', world: 'Where in the World?', whoami: 'Who Am I? Clue by Clue', passport: 'Church History Passport', balderdash: 'Bible Balderdash', gamenight: 'Game Night', credits: 'Credits' }
+const routes: Record<string, unknown> = { guess: GuessWho, pairs: Pairs, quotes: Quotes, order: StoryOrder, bingo: Bingo, map: JourneyMap, charades: Charades, real: RealOrFake, draw: DrawIt, quiz: QuizNight, snakes: Snakes, exodus: Exodus, ark: ArkRescue, trumps: TopTrumps, jericho: Jericho, freeze: Freeze, feed: Feed, noah: Noah, sheep: Sheep, timeline: Timeline, verse: Verse, world: WorldMap, whoami: WhoAmI, passport: Passport, balderdash: Balderdash, gamenight: GameNight, credits: Credits, ...Object.fromEntries(Object.entries(P24).map(([k, v]) => [k, v[0]])) }
+const titles: Record<string, string> = { guess: 'Guess Who', pairs: 'Pairs', quotes: 'Who said or wrote it?', order: 'Story Order', bingo: 'Bible Bingo', map: 'Journey Map', charades: 'Bible Charades', real: 'Real or Made Up?', draw: 'Draw It', quiz: 'Quiz Night', snakes: 'Pilgrim’s Way', exodus: 'Out of Egypt', ark: 'Ark Rescue', trumps: 'Bible Top Trumps', jericho: 'Walls of Jericho', freeze: 'Freeze, Lot’s Wife!', feed: 'Feed the 5,000', noah: 'Noah’s Animal Noises', sheep: 'Hide the Lost Sheep', timeline: 'The Big Story Timeline', verse: 'Verse Builder', world: 'Where in the World?', whoami: 'Who Am I? Clue by Clue', passport: 'Church History Passport', balderdash: 'Bible Balderdash', gamenight: 'Game Night', credits: 'Credits', ...Object.fromEntries(Object.entries(P24).map(([k, v]) => [k, v[1]])) }
 const read = () => { const k = location.hash.replace(/^#\/?/, '').split('/')[0]; return k in routes ? k : '' }
 const route = ref(read())
 const onHash = () => (route.value = read())

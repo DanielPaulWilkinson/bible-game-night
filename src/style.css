@@ -20,3 +20,15 @@ h1:focus { outline: none; }
 .fall { animation: wallfall .9s ease-in forwards; }
 @keyframes pop { 0% { transform: scale(.6); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
 .pop { animation: pop .4s ease-out; }
+
+/* Polish: one press response for every button, a clear focus ring, and one turn-change transition. */
+button, .btn, .btn2, a.chip { transition: transform 120ms ease-out, filter 120ms ease-out; -webkit-tap-highlight-color: transparent; }
+button:active:not(:disabled), .btn:active, .btn2:active { transform: scale(.96); filter: brightness(.94); }
+:focus-visible { outline: 3px solid #E3A23B; outline-offset: 3px; }
+.turn-enter-active, .turn-leave-active { transition: opacity 180ms ease, transform 180ms ease; }
+.turn-enter-from { opacity: 0; transform: translateX(16px); }
+.turn-leave-to { opacity: 0; transform: translateX(-16px); }
+@media (prefers-reduced-motion: reduce) {
+  button, .btn, .btn2 { transition: none; } button:active:not(:disabled), .btn:active, .btn2:active { transform: none; }
+  .turn-enter-active, .turn-leave-active { transition: opacity 1ms; } .turn-enter-from, .turn-leave-to { transform: none; }
+}

@@ -23,3 +23,7 @@ export function playTune(): () => void {
   const next = () => { if (!on) return; tone(TUNE[i++ % TUNE.length], 0, 0.28, 0.18); setTimeout(next, 300) }
   next(); return () => { on = false }
 }
+/** Winner fanfare: a short rising arpeggio with a bright top note. */
+export const cheer = () => { [392, 523, 659, 784].forEach((f, i) => tone(f, i * 0.09, 0.3, 0.22)); tone(1047, 0.4, 0.7, 0.2, 'sine') }
+/** Gentle finish for worship rounds: two soft notes, no fanfare. */
+export const chime = () => { tone(523, 0, 0.9, 0.1, 'sine'); tone(784, 0.35, 1.2, 0.08, 'sine') }

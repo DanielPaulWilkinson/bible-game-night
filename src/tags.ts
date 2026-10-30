@@ -28,6 +28,16 @@ export const TAGS: Record<string, Tags> = {
   snakes: t('all', ['family'], 'table', 'competitive', 20),
   exodus: t('all', ['family'], 'table', 'competitive', 20),
   ark: t('little', ['family'], 'table', 'coop', 15),
+  taboo: t('all', ['family', 'hosting', 'couples'], 'table', 'teams', 15),
+  sketch: t('all', ['family', 'hosting'], 'table', 'teams', 15, ['phone', 'props']),
+  alphabet: t('all', ['family', 'hosting', 'couples'], 'table', 'teams', 10),
+  fill: t('all', ['family', 'hosting', 'couples'], 'table', 'teams', 10),
+  act: t('little', ['family', 'hosting'], 'active', 'coop', 10),
+  framefreeze: t('little', ['family'], 'active', 'coop', 5),
+  simon: t('little', ['family', 'hosting'], 'active', 'coop', 5),
+  catechism: t('all', ['family', 'couples'], 'quiet', 'coop', 5),
+  finish: t('all', ['family', 'couples'], 'quiet', 'coop', 5),
+  thanks: t('all', ['family', 'couples'], 'quiet', 'coop', 5),
   trumps: t('all', ['family', 'couples'], 'table', 'competitive', 15),
 }
 export type Filter = { age?: Tags['age']; players?: Tags['players'][number]; energy?: Tags['energy']; style?: Tags['style']; short?: boolean }

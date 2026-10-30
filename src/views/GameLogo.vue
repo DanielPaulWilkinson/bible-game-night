@@ -15,6 +15,16 @@ defineProps<{ id: string }>()
         <path d="M29 24.5a3 3 0 1 1 4 2.8c-1 .5-1 1.2-1 2.2" fill="none" stroke="#9B2C45" />
         <circle cx="32" cy="32.2" r=".6" fill="#9B2C45" stroke="#9B2C45" />
       </template>
+      <template v-else-if="id === 'taboo'"><path d="M16 22h32v18H30l-8 7v-7h-6z" /><path d="M22 27l20 8M42 27l-20 8" fill="none" stroke="#9B2C45" /></template>
+      <template v-else-if="id === 'sketch'"><rect x="15" y="17" width="34" height="30" rx="2" /><path d="M21 39c4-8 8-8 10-3s6 4 11-6" fill="none" stroke="#9B2C45" /></template>
+      <template v-else-if="id === 'alphabet'"><rect x="14" y="20" width="16" height="22" rx="3" /><rect x="34" y="20" width="16" height="22" rx="3" /><path d="M18 37l4-12 4 12M19.5 33h5M38 25h5a3 3 0 0 1 0 6h-5zm0 6h6a3 3 0 0 1 0 6h-6z" fill="none" /></template>
+      <template v-else-if="id === 'fill'"><path d="M14 20h36v26H14z" /><path d="M19 27h26M19 33h8M37 33h8M19 39h20" fill="none" /><path d="M29 33h6" fill="none" stroke="#E3A23B" stroke-width="3.5" /></template>
+      <template v-else-if="id === 'act'"><circle cx="25" cy="21" r="5" /><circle cx="40" cy="23" r="5" /><path d="M25 26v12l-5 9M25 31l-7-5M25 31l8-5M25 38l5 9M40 28v11l-4 8M40 39l4 8M40 32l7 3" fill="none" /></template>
+      <template v-else-if="id === 'framefreeze'"><rect x="14" y="16" width="36" height="32" rx="2" /><circle cx="32" cy="25" r="4" /><path d="M32 29v10M24 27l8 4 8-4M32 39l-5 6M32 39l5 6" fill="none" /></template>
+      <template v-else-if="id === 'simon'"><circle cx="32" cy="19" r="5" /><path d="M32 24v13M32 28l-10-8M32 28l10-8M32 37l-7 10M32 37l7 10" fill="none" /></template>
+      <template v-else-if="id === 'catechism'"><path d="M14 18h16v26H14zM34 18h16v26H34z" /><path d="M20 26a2 2 0 1 1 3 2v2M40 26h6M40 31h6M40 36h4" fill="none" /></template>
+      <template v-else-if="id === 'finish'"><path d="M26 44V20l18-4v24" fill="none" /><ellipse cx="22" cy="44" rx="5" ry="3.5" /><ellipse cx="40" cy="40" rx="5" ry="3.5" /></template>
+      <template v-else-if="id === 'thanks'"><path d="M20 46c0-8 2-16 6-22 2-3 5-3 6 0 1-3 4-3 6 0 4 6 6 14 6 22z" /><path d="M32 24v22" fill="none" /></template>
       <template v-else-if="id === 'pairs'">
         <rect x="15" y="18" width="18" height="25" rx="3" transform="rotate(-12 24 30)" />
         <rect x="31" y="20" width="18" height="25" rx="3" transform="rotate(10 40 32)" />

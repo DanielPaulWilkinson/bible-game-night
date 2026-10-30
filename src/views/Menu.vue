@@ -14,6 +14,10 @@ const sections = [
     { href: '#/real', title: 'Real or Made Up?', blurb: 'Vote with your hands, then find out the truth.', icon: 'real' },
     { href: '#/draw', title: 'Draw It', blurb: 'Draw the secret word while everyone guesses.', icon: 'draw' },
     { href: '#/balderdash', title: 'Bible Balderdash', blurb: 'Strange Bible words. Bluff a meaning, spot the real one.', icon: 'real' },
+    { href: '#/taboo', title: 'Forbidden Words', blurb: 'Describe a Bible word without saying the words underneath.', icon: 'taboo' },
+    { href: '#/sketch', title: 'Sketch It', blurb: 'Draw on paper while your team guesses. Verse at the end.', icon: 'sketch' },
+    { href: '#/alphabet', title: 'Bible Alphabet', blurb: 'A letter and a category. Name as many as you can in 30 seconds.', icon: 'alphabet' },
+    { href: '#/fill', title: 'Fill the Verse', blurb: 'A memory verse with one word missing. First team to say it scores.', icon: 'fill' },
     { href: '#/quiz', title: 'Quiz Night', blurb: 'Three rounds for 2 to 4 teams, with a big scoreboard.', icon: 'quiz' },
   ] },
   { title: 'Get up and move', games: [
@@ -21,6 +25,9 @@ const sections = [
     { href: '#/freeze', title: 'Freeze, Lot’s Wife!', blurb: 'Musical statues with Bible poses.', icon: 'freeze' },
     { href: '#/feed', title: 'Feed the 5,000', blurb: 'Pass the device and share the loaves and fish.', icon: 'feed' },
     { href: '#/noah', title: 'Noah’s Animal Noises', blurb: 'Act the animal, guess it, load the ark in pairs.', icon: 'noah' },
+    { href: '#/act', title: 'Act It Out', blurb: 'One reads the verse, everyone acts it together.', icon: 'act' },
+    { href: '#/framefreeze', title: 'Freeze Frame', blurb: 'Act a Bible scene, then freeze like a photo on zero.', icon: 'framefreeze' },
+    { href: '#/simon', title: 'Simon Peter Says', blurb: 'Bible moves. Only move when Simon Peter says. Nobody is out.', icon: 'simon' },
     { href: '#/sheep', title: 'Hide the Lost Sheep', blurb: 'Hot and cold hunt with a baa that gets louder.', icon: 'sheep' },
   ] },
   { title: 'Learn and remember', games: [
@@ -29,6 +36,11 @@ const sections = [
     { href: '#/world', title: 'Where in the World?', blurb: 'Find Bible places on a simple map.', icon: 'world' },
     { href: '#/whoami', title: 'Who Am I? Clue by Clue', blurb: 'Guess early for more points, Bible and church history.', icon: 'whoami' },
     { href: '#/passport', title: 'Church History Passport', blurb: 'Hear six stories, tell them back, collect stamps.', icon: 'passport' },
+  ] },
+  { title: 'Worship and wonder', games: [
+    { href: '#/catechism', title: 'Catechism Drill', blurb: 'Old questions and answers to learn by heart together.', icon: 'catechism' },
+    { href: '#/finish', title: 'Finish the Line', blurb: 'Start of a psalm or old hymn. Say the next line together.', icon: 'finish' },
+    { href: '#/thanks', title: 'Thankful Together', blurb: 'A quiet round of thank-yous and prayer. No points.', icon: 'thanks' },
   ] },
   { title: 'Board games', games: [
     { href: '#/snakes', title: 'Pilgrim’s Way', blurb: 'Snakes and ladders on the road from The Pilgrim’s Progress.', icon: 'snakes' },
@@ -50,7 +62,7 @@ const meta = (id: string) => { const t = TAGS[id]; return `${t.minutes} min` }
       <img :src="`scenes/noah-5.webp`" width="480" height="352" alt="Noah and his family under a rainbow beside the ark" class="h-full w-full border-b-4 border-ink object-cover sm:border-b-0 sm:border-r-4" />
       <div class="flex flex-col justify-center p-6 sm:p-8">
         <h1 tabindex="-1" class="text-5xl font-semibold leading-none outline-none sm:text-6xl">Bible Games</h1>
-        <p class="mt-4 max-w-[34ch] text-xl leading-snug">Twenty-five games with people and stories from the Bible, for one screen and a sofa full of family.</p>
+        <p class="mt-4 max-w-[34ch] text-xl leading-snug">Thirty-five games with people and stories from the Bible, for one screen and a sofa full of family.</p>
       </div>
     </header>
     <a href="#/gamenight" class="mt-6 flex min-h-16 items-center justify-between gap-4 rounded-xl border-4 border-ink bg-saffron px-5 py-3 text-ink">
@@ -71,6 +83,7 @@ const meta = (id: string) => { const t = TAGS[id]; return `${t.minutes} min` }
         <p class="text-lg" role="status" aria-live="polite">{{ count }} {{ count === 1 ? 'game' : 'games' }}</p>
       </div>
     </section>
+    <p v-if="!count" class="mt-10 rounded-xl border-2 border-dashed border-[#5a7299] p-6 text-xl">No game fits all of those. <button type="button" class="min-h-12 underline underline-offset-4" @click="f = {}">Clear filters</button> or turn one off.</p>
     <section v-for="sec in shown" :key="sec.title" class="mt-10">
     <h2 class="border-b-2 border-saffron pb-2 text-2xl font-semibold">{{ sec.title }}</h2>
     <ul class="grid sm:grid-cols-2 sm:gap-x-8">

@@ -119,7 +119,7 @@ describe('Tags and filters', () => {
   it('filters combine', () => {
     const ids = (f: Parameters<typeof matches>[1]) => Object.keys(TAGS).filter(k => matches(TAGS[k], f))
     expect(ids({})).toHaveLength(Object.keys(TAGS).length)
-    expect(ids({ energy: 'active', style: 'coop' }).sort()).toEqual(['feed', 'jericho', 'sheep'])
+    expect(ids({ energy: 'active', style: 'coop' }).sort()).toEqual(['act', 'feed', 'framefreeze', 'jericho', 'sheep', 'simon'])
     expect(ids({ age: 'little' })).toContain('charades'); expect(ids({ age: 'adults' })).not.toContain('pairs')
     expect(ids({ short: true }).every(k => TAGS[k].minutes <= 10)).toBe(true)
     expect(ids({ players: 'couples' })).toContain('balderdash')
