@@ -28,7 +28,7 @@ const MOOD_NOTE: Record<Mood, string> = { move: 'Off the sofa', laugh: 'Giggles 
 <template>
   <main class="mx-auto max-w-5xl px-4 py-6 font-story text-linen sm:py-10">
     <header>
-      <h1 tabindex="-1" class="text-5xl font-semibold leading-none outline-none">Bible Games</h1>
+      <h1 tabindex="-1" class="text-5xl font-semibold leading-none outline-none">Bible Game Night</h1>
       <p class="mt-2 text-xl text-[#dfe6f0]">Bible stories to play on one screen with the people on your sofa.</p>
     </header>
 
@@ -47,7 +47,7 @@ const MOOD_NOTE: Record<Mood, string> = { move: 'Off the sofa', laugh: 'Giggles 
       </ol>
       <div class="mt-4 flex flex-wrap gap-3">
         <a :href="`#/${lineup[0]}`" @click="startNight(lineup)" class="inline-flex min-h-14 items-center rounded-full bg-saffron px-6 text-xl font-semibold ring-2 ring-ink">Play now</a>
-        <button type="button" class="min-h-14 rounded-full bg-linen px-5 text-xl ring-2 ring-ink" @click="lineup = deal(ids, who)">Deal tonight’s games again</button>
+        <button type="button" class="min-h-14 rounded-full bg-linen px-5 text-xl ring-2 ring-ink" @click="lineup = deal(ids, who, Math.random, lineup)">Deal tonight’s games again</button>
         <button type="button" class="min-h-14 px-2 text-xl underline underline-offset-4" @click="surpriseMe">Surprise me</button>
       </div>
     </section>

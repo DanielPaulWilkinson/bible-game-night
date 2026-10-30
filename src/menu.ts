@@ -25,9 +25,17 @@ export const forWho = (id: string, who: Who) => {
 export const ageBadge = (id: string) => ({ little: 'Age 3+', all: 'Age 6+', adults: 'Age 12+' })[TAGS[id].age]
 const pick = <T>(a: T[], r: () => number) => a[Math.floor(r() * a.length)]
 /** Tonight's lineup: one to move, one to laugh, one calm. The Blessing Round always follows. */
-export const deal = (ids: string[], who: Who, r = Math.random) => {
+export const deal = (ids: string[], who: Who, r = Math.random, avoid: string[] = []) => {
   const ok = (m: Mood[]) => ids.filter(k => m.includes(MOOD[k]) && forWho(k, who) && TAGS[k].minutes <= 15 && TAGS[k].needs.length === 1)
-  return [pick(ok(['move']), r), pick(ok(['laugh']), r), pick(ok(['quiet']).length ? ok(['quiet']) : ok(['think']), r)].filter(Boolean)
+  const out: string[] = []
+  const take = (a: string[]) => {
+    const free = a.filter(k => !out.includes(k))
+    const fresh = free.filter(k => !avoid.includes(k))
+    const k = pick(fresh.length ? fresh : free, r)
+    if (k) out.push(k)
+  }
+  take(ok(['move'])); take(ok(['laugh'])); take(ok(['quiet']).length ? ok(['quiet']) : ok(['think']))
+  return out
 }
 export const surprise = (ids: string[], who: Who, r = Math.random) => pick(ids.filter(k => forWho(k, who)), r)
 const KEY = 'bgn-recent'

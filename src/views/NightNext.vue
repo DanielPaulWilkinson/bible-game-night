@@ -14,7 +14,7 @@ onMounted(() => { h.value?.focus(); said.value = `${props.done ?? 'Game'} finish
 const go = async () => { if (next?.id === 'blessing') return emit('next'); cue.value = true; said.value = `Hand the phone to the next host. ${next?.title} is next.`; await Promise.resolve(); setTimeout(() => c.value?.focus(), 0) }
 </script>
 <template>
-  <section class="mt-6 rounded-xl border-4 border-ink bg-vellum p-5 pb-28 text-ink sm:pb-6" aria-labelledby="nn-h">
+  <section class="mt-6 border-t-4 border-ink pt-5 pb-20 text-ink sm:pb-0" aria-labelledby="nn-h">
     <p class="sr-only" role="status" aria-live="polite">{{ said }}</p>
     <template v-if="!cue">
       <h2 id="nn-h" ref="h" tabindex="-1" class="text-3xl font-semibold outline-none">{{ done ? `${done} is done` : 'Game done' }}</h2>
